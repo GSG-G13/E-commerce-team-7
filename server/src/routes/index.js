@@ -1,9 +1,10 @@
 import express from 'express';
 
-import Hello from '../controllers/index.js';
+import {addToCartControllers, getAllProductsFromCartController} from '../controllers/index.js';
 
 const router = express.Router();
 
-router.get('/', Hello);
+router.post('/add-to-cart', addToCartControllers);
+router.post('/get-all-product',getAllProductsFromCartController )
 
 export default router;
