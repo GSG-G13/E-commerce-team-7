@@ -4,7 +4,7 @@ const addToCartControllers = (req, res) => {
     addToCartQuery({userId, productId})
     .then(response => {
         res.json({
-            response
+            data:response.rows[0]
         })
     })
     .catch(error => {
