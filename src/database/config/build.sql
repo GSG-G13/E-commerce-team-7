@@ -14,7 +14,7 @@ CREATE TABLE users (
 
 CREATE TABLE category(
     id SERIAL PRIMARY KEY,
-    category int NOT NULL
+    category VARCHAR(50) NOT NULL
 );
 CREATE TABLE products(
     id SERIAL PRIMARY KEY,
