@@ -1,4 +1,4 @@
-import { verify } from '../utils/promisesSign';
+import { verify } from '../utils/promisesSign.js';
 
 export const checkAuth = (req, res, next) => {
   const { token } = req.cookies;
