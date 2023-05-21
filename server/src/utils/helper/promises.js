@@ -13,16 +13,12 @@ export const verify = (token) => new Promise((resolve, reject) => {
 
   })
 })
-
-export const sign = (payload) => new Promise((resolve, reject) => {
-  Jwt.sign(payload, SECRET, (error, token) => {
-    if (error) {
-      reject(error)
-    } else {
+export const signToken = ({ email, id, username }) =>
+  new Promise((resolve, reject) => {
+    Jwt.sign({ email, id, username }, "privateKey", (error, token) => {
+      if (error) reject(error)
       resolve(token)
-    }
-
-  })
+    })
 })
 
 

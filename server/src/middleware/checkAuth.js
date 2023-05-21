@@ -1,9 +1,9 @@
-import { verify } from '../utils/promisesSign.js';
+import { verify } from '../utils/index.js';
 
 export const checkAuth = (req, res, next) => {
   const { token } = req.cookies;
-  
-  if(!token) {
+
+  if (!token) {
     return res.json({
       message: 'UnAuthenticate',
     })
@@ -12,10 +12,10 @@ export const checkAuth = (req, res, next) => {
     .then((decoded) => {
       res.userData = decoded
       next()
-    }).catch(() =>{
+    }).catch(() => {
       res.clearCookie('token').json({
         message: 'UnAuthorized',
       })
-    } )
+    })
 
 }

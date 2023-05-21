@@ -2,8 +2,7 @@ import bcrypt from "bcrypt";
 import ms from "ms";
 import { getUserByEmailQuery, signupQuery } from "../../database/index.js";
 import { signupSchema } from "../../validation/index.js";
-import { CustomError, sign } from "../../utils/index.js";
-import { request } from "express";
+import { CustomError, signToken } from "../../utils/index.js";
 
 export const signupController = (req, res, next) => {
   const { username, email, password } = req.body;
@@ -21,7 +20,7 @@ export const signupController = (req, res, next) => {
     .then(hash => ({ username, email, password: hash }))
     .then(data => signupQuery(data))
     .then(data => data.rows[0])
-    .then(data => sign({ id: data.id, username: data.username }))
+    .then(data => signToken({ id: data.id, username: data.username }))
     .then(token => {
       res.cookie("token", token)
         .json({
