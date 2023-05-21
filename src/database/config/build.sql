@@ -21,7 +21,7 @@ CREATE TABLE products(
     category_id INTEGER NOT NULL REFERENCES category(id),
     description TEXT NOT NULL,
     price INTEGER NOT NULL,
-    discount DECIMAL(8, 2) NOT NULL,
+    discount int NOT NULL,
     details TEXT NOT NULL
 );
 
