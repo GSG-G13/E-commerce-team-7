@@ -6,3 +6,4 @@ const connectionString = process.env.DB_URL
 const connection = new pg.Pool({connectionString})
 
 export default connection;
+
