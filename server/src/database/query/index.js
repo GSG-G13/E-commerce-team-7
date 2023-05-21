@@ -1,3 +1,4 @@
 import addToCartQuery from "./cart/addToCart.js";
 import getProductFromCartQuery from "./cart/getProductFromCart.js";
-export {addToCartQuery, getProductFromCartQuery};
+import getUserByEmail from "./userAuthentication/login.js";
+export {addToCartQuery, getProductFromCartQuery, getUserByEmail};

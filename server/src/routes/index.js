@@ -5,7 +5,6 @@ import {addToCartControllers, getAllProductsFromCartController} from '../control
 
 const router = express.Router();
 
-router.get("/", Hello);
 router.get("/products", getProducts);
 router.post("/login", login);
 

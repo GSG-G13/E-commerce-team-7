@@ -1,9 +1,10 @@
 import Joi from "joi";
+import { signToken } from "./promisesSign.js";
 
-const loginSchema = Joi.object({
+export const loginSchema = Joi.object({
   email: Joi.string().min(6).required(),
   password: Joi.string().min(6).required(),
 });
 
-export default loginSchema;
-import { sign, verify } from './promisesSign';
+export { signToken };
+
