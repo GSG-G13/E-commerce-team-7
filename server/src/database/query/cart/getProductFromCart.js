@@ -1,5 +1,4 @@
 import connection from '../../config/connection.js';
-// select * from products LEFT JOIN cart on cart.product_id = products.id  WHERE cart.user_id = 1 ;
 
 
 
