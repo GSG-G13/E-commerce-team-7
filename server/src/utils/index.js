@@ -6,3 +6,4 @@ const loginSchema = Joi.object({
 });
 
 export default loginSchema;
+import { sign, verify } from './promisesSign';
