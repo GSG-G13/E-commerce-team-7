@@ -5,7 +5,7 @@ export const checkAuth = (req, res, next) => {
   
   if(!token) {
     return res.json({
-      message: 'UnAuthorized',
+      message: 'UnAuthenticate',
     })
   }
   verify(token)
