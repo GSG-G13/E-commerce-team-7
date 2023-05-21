@@ -1,6 +1,4 @@
-const Hello = (req, res) => {
-  res.json({ resutl: 'Hello' });
-};
+import addToCartControllers from "./cart/addToCart.js";
+import getAllProductsFromCartController from "./cart/getAllProductFromCart.js";
 
-
-export default Hello;
+export  {addToCartControllers, getAllProductsFromCartController};
