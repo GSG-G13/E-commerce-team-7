@@ -1,9 +1,10 @@
-import connection from "../../config";
+import connection from "../../config/index.js";
 
 const signupQuery = (userData) => {
   const { username, email, password } = userData;
+
   const sql = {
-    text: 'INSERT INTO USERS (username, email, password) VALUES $1, $2, $3 RETURNING id, username, email, password',
+    text: 'INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING *;',
     values: [username, email, password],
   }
   return connection.query(sql);

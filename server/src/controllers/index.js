@@ -1,5 +1,3 @@
-const Hello = (req, res) => {
-  res.json({ resutl: 'Hello' });
-};
+import { signupController } from "./auth/signup.js";
 
-export default Hello;
+export { signupController };

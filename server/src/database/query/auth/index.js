@@ -1,3 +1,3 @@
-import signupQuery from "./signup";
+import signupQuery from "./signup.js";
 
 export { signupQuery }

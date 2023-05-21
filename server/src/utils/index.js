@@ -1,5 +1,5 @@
 
-import { signupSchema } from "./validation";
-import { CustomError } from "./helper";
+import { CustomError } from "./helper/index.js";
+import { sign, verify } from './helper/index.js';
 
-export { signupSchema, CustomError };
+export { CustomError, sign, verify };

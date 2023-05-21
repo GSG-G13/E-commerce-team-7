@@ -1,16 +1,18 @@
 import bcrypt from "bcrypt";
-import { getUserByEmailQuery, signupQuery } from "../../database";
-import { signupSchema } from "../../validation";
 import ms from "ms";
+import { getUserByEmailQuery, signupQuery } from "../../database/index.js";
+import { signupSchema } from "../../validation/index.js";
+import { CustomError, sign } from "../../utils/index.js";
+import { request } from "express";
 
-const signupController = (req, res, next) => {
+export const signupController = (req, res, next) => {
   const { username, email, password } = req.body;
 
   signupSchema.validateAsync(req.body, { abortEarly: false })
     .then(userData => getUserByEmailQuery(userData.email))
     .then(userData => {
       if (userData.rowCount > 0) {
-        throw new Error(401, 'this email already exist');
+        throw new CustomError(401, 'this email already exist');
       }
     })
     .then(() => {
@@ -19,6 +21,12 @@ const signupController = (req, res, next) => {
     .then(hash => ({ username, email, password: hash }))
     .then(data => signupQuery(data))
     .then(data => data.rows[0])
+    .then(data => sign({ id: data.id, username: data.username }))
+    .then(token => {
+      res.cookie("token", token)
+        .json({
+          data: { 'msg': 'user signup successfully', rows: res.userData }
+        })
+    })
+    .catch(err => next(err))
 }
-
-export { signupController }

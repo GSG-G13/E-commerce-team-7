@@ -10,3 +10,4 @@ const connection = new pg.Pool({ connectionString })
 // .then(console.log)
 
 export default connection;
+

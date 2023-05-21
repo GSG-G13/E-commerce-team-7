@@ -1,3 +1,3 @@
-import { signupSchema } from "./userSchema";
+import { signupSchema } from "./userSchema/index.js";
 
 export { signupSchema };

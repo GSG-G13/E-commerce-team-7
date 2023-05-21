@@ -1,9 +1,14 @@
 import express from 'express';
 
-import Hello from '../controllers/index.js';
+import { authRouter } from './auth.js';
 
 const router = express.Router();
 
-router.get('/', Hello);
+router.get('/', (req, res) => {
+  res.json({
+    message: 'hello'
+  })
+});
+router.use('/user',authRouter);
 
 export default router;
