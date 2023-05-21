@@ -2,9 +2,9 @@ import { verify } from '../utils/index.js';
 
 export const checkAuth = (req, res, next) => {
   const { token } = req.cookies;
-
   if (!token) {
     return res.json({
+      error: true,
       message: 'UnAuthenticate',
     })
   }
@@ -14,6 +14,7 @@ export const checkAuth = (req, res, next) => {
       next()
     }).catch(() => {
       res.clearCookie('token').json({
+        error: true,
         message: 'UnAuthorized',
       })
     })

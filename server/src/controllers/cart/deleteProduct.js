@@ -1,7 +1,8 @@
 import { deleteFromCart } from '../../database/query/index.js';
 
 export const deleteProduct = (req, res) => {
-  const user_id = 1
+  
+  const user_id = res.userData.id
   const { product_id } = req.params
 
   deleteFromCart({user_id, product_id})

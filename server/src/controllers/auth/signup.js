@@ -24,7 +24,7 @@ export const signupController = (req, res, next) => {
     .then(token => {
       res.cookie("token", token)
         .json({
-          data: { 'msg': 'user signup successfully', rows: res.userData }
+          data: { error: false,'msg': 'user signup successfully', rows: res.userData }
         })
     })
     .catch(err => next(err))

@@ -4,14 +4,12 @@ const addToCartControllers = (req, res) => {
     addToCartQuery({userId, productId})
     .then(response => {
         res.json({
+            error: false,
             data:response.rows[0]
         })
     })
     .catch(error => {
-        console.log(error);
-        res.json({
-            error
-        })
+        next(error)
     })
 
 };
