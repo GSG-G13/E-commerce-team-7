@@ -3,7 +3,6 @@ const getAllProductsFromCart = (req, res) => {
     const {body: {userId}} = req;
     getProductFromCartQuery({userId})
     .then(response => {
-        console.log(response.rows);
         res.json({
             response
         })
