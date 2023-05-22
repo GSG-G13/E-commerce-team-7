@@ -17,5 +17,9 @@
         "react"
     ],
     "rules": {
+        "arrow-body-style": [
+            "error",
+            "as-needed"
+        ]
     }
 }
