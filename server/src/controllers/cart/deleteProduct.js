@@ -1,19 +1,22 @@
 import { deleteFromCart } from '../../database/query/index.js';
 
-export const deleteProduct = (req, res) => {
+export const deleteProduct = (req, res, next) => {
   
-  const user_id = res.userData.id
-  const { product_id } = req.params
+  const userId = res.userData.id
+  const { productId } = req.params
 
-  deleteFromCart({user_id, product_id})
-    .then((data) => {
-      if(data.rowCount){
-        console.log(data.rows);
+  deleteFromCart({userId, productId})
+    .then(({rows}) => {
+      if(rows.length > 0){
       res.status(201).json({
-        error:false,
-        message: 'successfully'
+        status:201,
+        message: 'successfully',
+        rows
       })
     }
     else {throw new CustomError('this product dos not exist!')}
-    }).catch(console.log)
+    })
+    .catch((error) => {
+      next(error)
+    })
 }

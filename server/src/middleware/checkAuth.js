@@ -4,17 +4,17 @@ export const checkAuth = (req, res, next) => {
   const { token } = req.cookies;
   if (!token) {
     return res.json({
-      error: true,
+      status: 401,
       message: 'UnAuthenticate',
     })
   }
   verify(token)
     .then((decoded) => {
-      res.userData = decoded
+      req.userData = decoded
       next()
     }).catch(() => {
       res.clearCookie('token').json({
-        error: true,
+        status: 401,
         message: 'UnAuthorized',
       })
     })

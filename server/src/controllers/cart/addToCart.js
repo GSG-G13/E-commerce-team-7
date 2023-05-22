@@ -1,10 +1,11 @@
 import {addToCartQuery} from '../../database/query/index.js'
-const addToCartControllers = (req, res) => {
-    const { body: { userId, productId } } = req;
-    addToCartQuery({userId, productId})
+const addToCartControllers = (req, res, next) => {
+    const { body: { productId } } = req;
+    const {userData: { id } } = req
+    addToCartQuery({id, productId})
     .then(response => {
         res.json({
-            error: false,
+            status: 201,
             data:response.rows[0]
         })
     })
