@@ -1,8 +1,9 @@
+/* eslint-disable import/extensions */
 import express from 'express';
-import getProducts from "../controllers/products/getProducts.js";
-import login from "../controllers/login/login.js";
+import getProducts from '../controllers/products/getProducts.js';
+import login from '../controllers/login/login.js';
 import { authRouter } from './auth.js';
-import {addToCartControllers, deleteProduct, getAllProductsFromCartController} from '../controllers/index.js';
+import { addToCartControllers, deleteProduct, getAllProductsFromCartController } from '../controllers/index.js';
 import { checkAuth } from '../middleware/checkAuth.js';
 import { isLogged } from '../middleware/isLogged.js';
 
