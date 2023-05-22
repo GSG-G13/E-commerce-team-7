@@ -1,11 +1,10 @@
-import React from 'react'
+import React from 'react';
+import ClientError from './Pages/ClientError';
 
-const App = () => {
+function App() {
   return (
-    <div>
-
-    </div>
-  )
+    <ClientError />
+  );
 }
 
-export default App
+export default App;
