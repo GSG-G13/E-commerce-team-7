@@ -1,10 +1,7 @@
 import React from 'react';
-import ClientError from './Pages/ClientError';
 
-function App() {
-  return (
-    <ClientError />
-  );
-}
+const App = () => (
+  <div>hi</div>
+);
 
 export default App;
