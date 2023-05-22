@@ -1,7 +1,7 @@
 import React from 'react';
 import '../assets/styles/clientError.css';
 
-export default function ClientError() {
+export  function ClientError() {
   return (
     <div id="main">
       <div className="fof">

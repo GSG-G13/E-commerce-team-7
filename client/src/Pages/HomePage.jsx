@@ -2,7 +2,7 @@ import React from 'react';
 import '../assets/styles/layout.css';
 import ProductCard from '../Components/ProductCard';
 
-const HomePage = () => {
+export function HomePage() {
   return (
     <div className="small-container">
       <div className="row row-2">
@@ -26,7 +26,5 @@ const HomePage = () => {
         <span>5</span>
       </div>
     </div>
-  )
+  );
 }
-
-export default HomePage
