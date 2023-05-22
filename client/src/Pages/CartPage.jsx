@@ -1,7 +1,7 @@
 import React from 'react';
 import '../assets/styles';
 
-export default function CartPage() {
+export function CartPage() {
   return (
     <div className="cart-container">
       <h1 style={{ fontWeight: '300' }}>Cart</h1>
