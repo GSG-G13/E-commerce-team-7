@@ -6,6 +6,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background: #f9f9f9;
 }
 
 .navbar {
@@ -32,6 +33,10 @@ nav ul li {
 a {
   text-decoration: none;
   color: #555;
+}
+
+a:hover {
+  color: #3390ec;
 }
 
 p {
@@ -70,7 +75,7 @@ p {
 
 .btn {
   display: inline-block;
-  background: #fbb72c;
+  background: #3390ec;
   color: #ffffff;
   padding: 8px 30px;
   margin: 30px 0;
@@ -132,7 +137,7 @@ p {
 }
 .title::after {
   content: "";
-  background: #fbb72c;
+  background: #3390ec;
   width: 80px;
   height: 5px;
   border-radius: 5px;
@@ -185,27 +190,9 @@ small {
   padding-top: 100px;
 }
 
-.testimonial .col-3 {
-  text-align: center;
-  padding: 40px 20px;
-  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: transform 0.5s;
-}
-
-.testimonial .col-3 img {
-  width: 100px;
-  margin-top: 20px;
-  border-radius: 50%;
-}
-
-.testimonial .col-3:hover {
-  transform: translateY(-10px);
-}
-
 .fa-quote-left {
   font-size: 34px;
-  color: #fbb72c;
+  color: #3390ec;
 }
 
 .col-3 p {
@@ -298,6 +285,13 @@ ul {
   width: 140px;
 }
 
+.logo-name{
+  color: #3390ec;
+  font-weight: bold;
+  letter-spacing: .5px;
+  font-size: 20px;
+}
+
 .footer hr {
   border: none;
   background: #b5b5b5;
@@ -351,8 +345,9 @@ ul {
 }
 
 select {
-  border: 2px solid #fbb72c;
+  border: 2px solid#00000099;
   padding: 5px;
+  background: transparent;
 }
 
 select:focus {
@@ -365,7 +360,7 @@ select:focus {
 
 .page-btn span {
   display: inline-block;
-  border: 1px solid #fbb72c;
+  border: 1px solid #3390ec;
   margin-left: 10px;
   width: 40px;
   height: 40px;
@@ -375,7 +370,7 @@ select:focus {
 }
 
 .page-btn span:hover {
-  background: #fbb72c;
+  background: #3390ec;
   color: #ffffff;
 }
 
@@ -418,10 +413,6 @@ input:focus {
   outline: none;
 }
 
-.single-product .fas {
-  color: #fbb72c;
-  margin-left: 10px;
-}
 
 .small-img-row {
   display: flex;
