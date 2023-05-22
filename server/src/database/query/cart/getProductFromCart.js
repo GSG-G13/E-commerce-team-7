@@ -3,7 +3,6 @@ import connection from '../../config/connection.js';
 
 
 const getAllProductsFromCartController = ({id}) => {
-    console.log(id);
     const query = {
         text : 'select * from products  JOIN cart on cart.product_id = products.id  WHERE cart.user_id = $1',
         values: [id]

@@ -6,7 +6,9 @@ import { customError } from '../../middleware/index.js';
 const login = (req, res, next) => {
   const { body: { password, email } } = req;
   loginSchema.validateAsync({ password, email })
-    .then(getUserByEmail)
+    .then(({email}) => {
+      return getUserByEmail({email})
+    })
     .then(({ rows }) => {
       if (rows.length <= 0) throw customError(400, { message: 'Please enter correct password!' });
       req.user = rows[0];
@@ -21,7 +23,6 @@ const login = (req, res, next) => {
       msg: 'this user is logged',
     }))
     .catch((error) => {
-      console.log(error);
       next(error);
     });
 };

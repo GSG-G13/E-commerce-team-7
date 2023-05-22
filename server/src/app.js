@@ -4,11 +4,19 @@ import router from "./routes/index.js";
 import serverError from "./middleware/serverError.js";
 import clientError from "./middleware/client.js";
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 dotenv.config();
 
 const app = express();
 
+const corsOptions = {
+    origin: 'http://localhost:5173',
+    optionsSuccessStatus: 200,
+    credentials: true, // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
+app.use(cors(corsOptions));
 app.use(cookieParser())
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
