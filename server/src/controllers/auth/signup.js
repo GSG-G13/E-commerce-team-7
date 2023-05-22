@@ -9,7 +9,7 @@ export const signupController = (req, res, next) => {
     .then(({ email }) => getUserByEmailQuery(email))
     .then(({ rows }) => {
       if (rows.length > 0) {
-        throw new CustomError(401, 'this email already exist');
+        throw new CustomError(401, "this email already exist");
       }
     })
     .then(() => bcrypt.hash(password, 12))

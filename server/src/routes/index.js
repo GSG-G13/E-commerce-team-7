@@ -10,10 +10,10 @@ import { isLogged } from '../middleware/isLogged.js';
 const router = express.Router();
 
 router.use('/user', isLogged, authRouter);
-router.get('/products', getProducts);
-router.post('/login', isLogged, login);
-router.post('/add-to-cart', checkAuth, addToCartControllers);
-router.delete('/product/:productId', checkAuth, deleteProduct);
-router.post('/get-all-product', checkAuth, getAllProductsFromCartController);
+router.get("/products", getProducts);
+router.post("/user/signin",isLogged, login);
+router.post('/add-to-cart', checkAuth,addToCartControllers);
+router.delete('/product/:productId', checkAuth,deleteProduct)
+router.post('/get-all-product', checkAuth ,getAllProductsFromCartController)
 
 export default router;

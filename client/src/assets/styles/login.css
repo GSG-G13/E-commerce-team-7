@@ -18,14 +18,14 @@ p {
     font-size: 12px;
     margin-bottom: 20px;
 }
-form {
+.form {
     display: flex;
     flex-direction: column;
     
     width: 300px;
 }
 
-form input {
+.form input {
     outline: rgba(0, 0, 0, .2);
     border: 1px solid rgba(0, 0, 0, .1);
     border-radius: 4px;
@@ -34,7 +34,7 @@ form input {
     margin-bottom: 20px;
     
 }
-form button {
+.form button {
 
 margin-bottom: 20px;
 
