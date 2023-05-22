@@ -7,16 +7,16 @@ import Jwt from 'jsonwebtoken';
 const serverError = (err, req, res, next) => {
     if (err instanceof Joi.ValidationError) {
         return res.status(400).json({
-            error: true,
+            status: 401,
             data: {
-                message: err.details,
+                message: 'invalid inputs data!',
             },
         });
     }
 
     if (err instanceof Jwt.JsonWebTokenError) {
         return res.status(401).json({
-            error: true,
+            status: 401,
             data: {
                 message: 'UnAuthorize',
             },
@@ -24,7 +24,7 @@ const serverError = (err, req, res, next) => {
     }
     if (err instanceof CustomError) {
         return res.status(400).json({
-            error: true,
+            status: 400,
             data: {
                 message: err.message,
             },

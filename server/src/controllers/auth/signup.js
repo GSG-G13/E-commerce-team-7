@@ -5,7 +5,7 @@ import { CustomError, signToken } from "../../utils/index.js";
 
 export const signupController = (req, res, next) => {
   const { body: {username, email, password  }} = req;
-  signupSchema.validateAsync({username, email, password}, { abortEarly: false })
+  signupSchema.validateAsync({username, email, password})
     .then(({email}) => getUserByEmailQuery(email))
     .then(({rows}) => {
       if (rows.length > 0) {
