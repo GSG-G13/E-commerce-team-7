@@ -1,10 +1,11 @@
 import React from 'react';
-import { NavBar, Footer } from './Components';
+import { NavBar, Footer, ServerError } from './Components';
 
 function App() {
   return (
     <>
       <NavBar />
+      <ServerError />
       <Footer />
     </>
   );

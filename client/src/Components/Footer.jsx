@@ -1,9 +1,9 @@
 import React from 'react';
+import '../assets/styles/layout.css';
 
 function Footer() {
   return (
     <div className="footer">
-      <hr />
       <p className="copyright">Copyright &copy; 2021 - Red Store</p>
     </div>
   );
