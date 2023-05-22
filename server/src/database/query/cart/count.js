@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import connection from '../../config/connection.js';
+import { connection } from '../../config/connection.js';
 
 const checkCount = ({ user_id, product_id }) => {
   const sql = {
@@ -9,11 +9,11 @@ const checkCount = ({ user_id, product_id }) => {
   return connection.query(sql);
 };
 
-const incrementCount = ({ user_id, product_id }) => checkCount({ user_id, product_id })
+export const incrementCount = ({ user_id, product_id }) => checkCount({ user_id, product_id })
   .then((data) => data.rows[0])
   .then((product) => connection.query(`UPDATE cart SET count =${product.count + 1} WHERE user_id =${user_id} AND product_id =${product_id} RETURNING *;`));
 
-const decrementCount = ({ user_id, product_id }) => {
+export const decrementCount = ({ user_id, product_id }) => {
   const sql = {
     text: 'DELETE FROM cart WHERE user_id =$1 AND product_id =$2;',
     values: [user_id, product_id],
@@ -30,5 +30,3 @@ const decrementCount = ({ user_id, product_id }) => {
       return connection.query(`UPDATE cart SET count = ${product.count - 1} WHERE user_id = ${user_id} AND product_id = ${product_id} RETURNING *;`);
     });
 };
-
-export { decrementCount, incrementCount };

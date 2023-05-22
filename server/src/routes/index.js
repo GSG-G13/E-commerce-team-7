@@ -1,9 +1,8 @@
 import express from 'express';
-import getProducts from '../controllers/products/getProducts.js';
-import authRouter from './auth.js';
-import { checkAuth } from '../middleware/checkAuth.js';
-import { isLogged } from '../middleware/isLogged.js';
+import { getProducts } from '../controllers/products/getProducts.js';
+import { authRouter } from './auth.js';
 import cartRouter from './cartRouter.js';
+import { checkAuth, isLogged } from '../middleware/index.js';
 
 const router = express.Router();
 router.use('/user', isLogged, authRouter);

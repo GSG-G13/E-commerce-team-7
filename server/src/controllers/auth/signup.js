@@ -5,9 +5,8 @@ import { CustomError, signToken } from '../../utils/index.js';
 
 export const signupController = (req, res, next) => {
   const { body: { username, email, password } } = req;
-  console.log(username, email, password );
   signupSchema.validateAsync({ username, email, password })
-    .then(({ email }) => getUserByEmailQuery(email))
+    .then(() => getUserByEmailQuery(email))
     .then(({ rows }) => {
       if (rows.length > 0) {
         throw new CustomError(401, 'this email already exist');
@@ -16,7 +15,7 @@ export const signupController = (req, res, next) => {
     .then(() => bcrypt.hash(password, 12))
     .then((hash) => (signupQuery({ username, email, password: hash })))
     .then(({ rows }) => rows[0])
-    .then(({ id, username }) => signToken({ id, username }))
+    .then(({ id }) => signToken({ id, username }))
     .then((token) => {
       res.cookie('token', token)
         .json({

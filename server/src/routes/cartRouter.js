@@ -14,5 +14,4 @@ cartRouter.post('/add-to-cart', addToCartControllers);
 cartRouter.get('/decrement/:product_id', decrement);
 cartRouter.get('/increment/:product_id', increment);
 
-
 export default cartRouter;

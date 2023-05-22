@@ -1,6 +1,6 @@
 import { getProductFromCartQuery } from '../../database/query/index.js';
 
-const getAllProductsFromCart = (req, res) => {
+export const getAllProductsFromCart = (req, res) => {
   const { userData: { id } } = req;
   getProductFromCartQuery({ id })
     .then(({ rows }) => {
@@ -10,8 +10,6 @@ const getAllProductsFromCart = (req, res) => {
       });
     })
     .catch((error) => {
-      console.log(error);
       res.json({ error });
     });
 };
-export default getAllProductsFromCart;

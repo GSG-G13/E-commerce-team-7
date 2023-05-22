@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import { incrementCount } from '../../database/index.js';
 
-const increment = (req, res, next) => {
+export const increment = (req, res, next) => {
   const user_id = req.userData.id;
   const { product_id } = req.params;
 
@@ -13,5 +13,3 @@ const increment = (req, res, next) => {
       });
     }).catch(next);
 };
-
-export default increment;

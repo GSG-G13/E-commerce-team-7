@@ -1,7 +1,7 @@
-import connection from "./config/connection.js";
-import { signupQuery } from "./query/auth/index.js"
+import { connection } from './config/connection.js';
+import { signupQuery } from './query/auth/index.js';
 import { decrementCount, incrementCount } from './query/index.js';
-import { getUserByEmailQuery } from "./query/users/index.js";
+import { getUserByEmailQuery } from './query/users/index.js';
 
 export {
   decrementCount,

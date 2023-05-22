@@ -1,3 +1,5 @@
 import { checkAuth } from './checkAuth.js';
 import customError from './customError.js';
-export { customError }
+import { isLogged } from './isLogged.js';
+
+export { customError, checkAuth, isLogged };

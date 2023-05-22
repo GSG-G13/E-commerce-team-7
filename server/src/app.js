@@ -1,9 +1,9 @@
-import express from "express";
-import dotenv from "dotenv";
-import router from "./routes/index.js";
-import serverError from "./middleware/serverError.js";
-import clientError from "./middleware/client.js";
+import express from 'express';
+import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
+import router from './routes/index.js';
+import serverError from './middleware/serverError.js';
+import clientError from './middleware/client.js';
 
 dotenv.config();
 
