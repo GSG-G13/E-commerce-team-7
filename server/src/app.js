@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import router from './routes/index.js';
 import serverError from './middleware/serverError.js';
 import clientError from './middleware/client.js';
+import cors from "cors";
 dotenv.config();
 
 const app = express();
