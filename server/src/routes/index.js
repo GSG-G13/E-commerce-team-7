@@ -11,8 +11,8 @@ const router = express.Router();
 router.use('/user', isLogged, authRouter);
 router.get("/products", getProducts);
 router.post("/login",isLogged, login);
-router.post('/add-to-cart', addToCartControllers);
-router.delete('/product/:product_id', checkAuth,deleteProduct)
-router.post('/get-all-product', getAllProductsFromCartController)
+router.post('/add-to-cart', checkAuth,addToCartControllers);
+router.delete('/product/:productId', checkAuth,deleteProduct)
+router.post('/get-all-product', checkAuth ,getAllProductsFromCartController)
 
 export default router;
