@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import React from 'react';
 import '../assets/styles/layout.css';
 import ProductCard from '../Components/ProductCard';

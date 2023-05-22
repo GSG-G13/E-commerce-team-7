@@ -1,7 +1,8 @@
 import React from 'react';
 import '../assets/styles/clientError.css';
 
-export  function ClientError() {
+// eslint-disable-next-line import/prefer-default-export
+export function ClientError() {
   return (
     <div id="main">
       <div className="fof">
