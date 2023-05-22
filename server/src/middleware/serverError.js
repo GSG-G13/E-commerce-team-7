@@ -1,9 +1,7 @@
-/* eslint-disable no-unused-vars */
 import Joi from 'joi';
 import Jwt from 'jsonwebtoken';
 import { CustomError } from '../utils/index.js';
 
-// eslint-disable-next-line consistent-return
 const serverError = (err, req, res, next) => {
   if (err instanceof Joi.ValidationError) {
     return res.status(400).json({
@@ -31,10 +29,10 @@ const serverError = (err, req, res, next) => {
     });
   }
 
-  res.status(500).json({
-    status: 500,
-    message: 'server err',
-  });
+    res.status(500).json({
+        error: true,
+        message: err
+    })
 };
 
 export default serverError;

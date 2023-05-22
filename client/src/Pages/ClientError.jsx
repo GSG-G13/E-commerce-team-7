@@ -1,7 +1,6 @@
 import React from 'react';
 import '../assets/styles/clientError.css';
 
-// eslint-disable-next-line import/prefer-default-export
 export function ClientError() {
   return (
     <div id="main">

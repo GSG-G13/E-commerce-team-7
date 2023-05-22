@@ -7,7 +7,9 @@ import { loginSchema } from '../../validation/index.js';
 export const login = (req, res, next) => {
   const { body: { password, email } } = req;
   loginSchema.validateAsync({ password, email })
-    .then(getUserByEmail)
+    .then(({email}) => {
+      return getUserByEmail({email})
+    })
     .then(({ rows }) => {
       if (rows.length <= 0) throw customError(400, { message: 'Please enter correct password!' });
       const [user] = rows;

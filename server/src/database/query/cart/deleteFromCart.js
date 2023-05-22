@@ -1,9 +1,10 @@
 import { connection } from '../../config/connection.js';
 
-export const deleteFromCart = ({ userID, productId }) => {
+export const deleteFromCart = ({productId}) => {
+  console.log(productId);
   const sql = {
-    text: 'DELETE FROM cart WHERE user_id=$1 AND product_id=$2',
-    values: [userID, productId],
-  };
-  return connection.query(sql);
+    text : "DELETE FROM cart WHERE id=$1 RETURNING *",
+    values: [productId]
+  }
+  return connection.query(sql)
 };
