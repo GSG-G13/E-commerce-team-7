@@ -1,12 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { NavBar, Footer, ServerError } from './Components';
 import LogIn from './Pages/Login'
 
-const App = () => {
+function App() {
   return (
-    <div>
-<LogIn />
-    </div>
-  )
+    <div>hi</div>
+  );
 }
 
-export default App
+export default App;
