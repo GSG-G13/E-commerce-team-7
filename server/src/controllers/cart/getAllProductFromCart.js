@@ -1,9 +1,10 @@
 import { getProductFromCartQuery } from "../../database/query/index.js";
 const getAllProductsFromCart = (req, res) => {
-    const {userData: { id } } = req
+    const {userData: { id } } = req;
     getProductFromCartQuery({id})
-    .then(({rows}) => {
-        res.json({
+    .then((rows) => {
+        console.log(rows);
+        return res.json({
             status: 201,
             rows   
         })
