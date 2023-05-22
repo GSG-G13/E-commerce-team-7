@@ -69,5 +69,13 @@ INSERT INTO products (category_id, description, price, discount, details) VALUES
     (5, 'Cardigan Sweater', 90, 0.2, 'Lorem ipsum dolor sit amet'),
     (5, 'Turtleneck Sweater', 75, 0.05, 'Lorem ipsum dolor sit amet');
 
+    INSERT INTO cart (user_id, product_id) VALUES 
+    (1,1),
+    (1,2),
+    (1,3),
+    (1,4),
+    (1,5),
+    (1,6);
+
 COMMIT;
 

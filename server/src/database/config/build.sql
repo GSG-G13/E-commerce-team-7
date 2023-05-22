@@ -28,7 +28,8 @@ CREATE TABLE products(
 CREATE TABLE cart(
     id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL REFERENCES users(id),
-    product_id int NOT NULL REFERENCES products(id)
+    product_id int NOT NULL REFERENCES products(id),
+    count int NOT NULL DEFAULT 1
 );
 
 COMMIT;

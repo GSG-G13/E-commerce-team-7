@@ -1,18 +1,13 @@
 import express from 'express';
-import getProducts from "../controllers/products/getProducts.js";
-import login from "../controllers/login/login.js";
-import { authRouter } from './auth.js';
-import {addToCartControllers, deleteProduct, getAllProductsFromCartController} from '../controllers/index.js';
+import getProducts from '../controllers/products/getProducts.js';
+import authRouter from './auth.js';
 import { checkAuth } from '../middleware/checkAuth.js';
 import { isLogged } from '../middleware/isLogged.js';
+import cartRouter from './cartRouter.js';
 
 const router = express.Router();
-
 router.use('/user', isLogged, authRouter);
-router.get("/products", getProducts);
-router.post("/login",isLogged, login);
-router.post('/add-to-cart', checkAuth,addToCartControllers);
-router.delete('/product/:productId', checkAuth,deleteProduct)
-router.post('/get-all-product', checkAuth ,getAllProductsFromCartController)
+router.use(checkAuth, cartRouter);
+router.get('/products', getProducts);
 
 export default router;

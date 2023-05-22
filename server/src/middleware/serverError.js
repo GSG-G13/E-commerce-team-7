@@ -31,8 +31,9 @@ const serverError = (err, req, res, next) => {
         });
     }
 
+    console.log(err);
     res.status(500).json({
-        error: true,
+        status: 500,
         message: 'err'
     })
 };
