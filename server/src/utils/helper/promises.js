@@ -12,7 +12,9 @@ export const verify = (token) => new Promise((resolve, reject) => {
 export const signToken = ({ email, id, username }) =>
   new Promise((resolve, reject) => {
     Jwt.sign({ email, id, username }, SECRET, (error, token) => {
+     
       if (error) reject(error)
+      
       resolve(token)
     })
 })
