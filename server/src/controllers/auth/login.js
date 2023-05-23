@@ -22,7 +22,7 @@ export const login = (req, res, next) => {
     })
     .then((token) => res.cookie('token', token).json({
       status: 200,
-      msg: 'this user is logged',
+      msg: 'the user has been signin successfully',
     }))
     .catch((error) => {
       next(error);
