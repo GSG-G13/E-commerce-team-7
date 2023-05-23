@@ -1,16 +1,17 @@
 import { addToCartQuery } from '../../database/query/index.js';
 
-export const addToCartControllers = (req, res, next) => {
+const addToCartControllers = (req, res, next) => {
   const { body: { productId } } = req;
-  const { userData: { id } } = req;
+  console.log({ productId });
+  const { userData: { id } } = req
   addToCartQuery({ id, productId })
-    .then((response) => {
+    .then(response => {
       res.json({
         status: 201,
-        data: response.rows[0],
-      });
+        data: response.rows[0]
+      })
     })
-    .catch((error) => {
-      next(error);
-    });
-};
+    .catch(error => {
+      next(error)
+    })
+  }
