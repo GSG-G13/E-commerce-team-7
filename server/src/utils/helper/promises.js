@@ -1,7 +1,7 @@
 import Jwt from 'jsonwebtoken';
-import { } from 'dotenv/config'
+import { } from 'dotenv/config';
 
-const { SECRET } = process.env
+const { SECRET } = process.env;
 
 export const verify = (token) => new Promise((resolve, reject) => {
   Jwt.verify(token, SECRET, (error, decoded) => {
@@ -9,6 +9,7 @@ export const verify = (token) => new Promise((resolve, reject) => {
       resolve(decoded)
   })
 })
+
 export const signToken = ({ email, id, username }) =>
   new Promise((resolve, reject) => {
     Jwt.sign({ email, id, username }, SECRET, (error, token) => {

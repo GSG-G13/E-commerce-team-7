@@ -1,13 +1,17 @@
-import { signupController } from "./auth/signup.js";
-import addToCartControllers from "./cart/addToCart.js";
+import { signupController } from './auth/signup.js';
+import { addToCartControllers } from './cart/addToCart.js';
+import { decrement } from './cart/decrement.js';
 import { deleteProduct } from './cart/deleteProduct.js';
-import getAllProductsFromCartController from "./cart/getAllProductFromCart.js";
+import { getAllProductsFromCart } from './cart/getAllProductFromCart.js';
+import { increment } from './cart/increment.js';
 import { getProductController } from './products/getProduct.js';
 
 export {
   addToCartControllers,
-  getProductController,
-  getAllProductsFromCartController,
+  getAllProductsFromCart,
   signupController,
   deleteProduct,
-};
+  decrement,
+  increment,}
+
+

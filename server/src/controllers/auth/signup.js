@@ -4,6 +4,7 @@ import { signupSchema } from '../../validation/index.js';
 import { CustomError, signToken } from '../../utils/index.js';
 
 export const signupController = (req, res, next) => {
+  console.log('hi');
   const { body: { username, email, password } } = req;
   signupSchema.validateAsync({ username, email, password })
     .then(({ email }) => getUserByEmailQuery(email))
@@ -17,6 +18,8 @@ export const signupController = (req, res, next) => {
     .then(({ rows }) => rows[0])
     .then(({ id, username }) => signToken({ id, username }))
     .then((token) => {
+      console.log('hi after', token);
+
       res.cookie('token', token)
         .json({
           data: { status: 201, msg: 'user signup successfully', rows: { id, username, email } },

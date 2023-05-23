@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import '../assets/styles';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
 import CartDiv from '../Components/cartComponents/cartDiv';
+import '../assets/styles';
 
-// eslint-disable-next-line import/prefer-default-export
 export function CartPage() {
   const [carts, setCarts] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);

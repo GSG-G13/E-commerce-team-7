@@ -1,4 +1,4 @@
-import connection from '../../config/connection.js'
+import { connection } from '../../config/connection.js';
 
 export const deleteFromCart = ({productId}) => {
   const sql = {
@@ -6,4 +6,4 @@ export const deleteFromCart = ({productId}) => {
     values: [productId]
   }
   return connection.query(sql)
-}
+};

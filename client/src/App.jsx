@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { RootLayout } from './layout/RootLayout';
 import { HomePage } from './Pages/HomePage';
 import { CartPage } from './Pages/CartPage';

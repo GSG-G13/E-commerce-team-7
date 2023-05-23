@@ -2,7 +2,6 @@ import { deleteFromCart } from '../../database/query/index.js';
 import { CustomError } from '../../utils/index.js';
 
 export const deleteProduct = (req, res, next) => {
-  // const userId = req.userData.id
   const { productId } = req.params;
   deleteFromCart({productId})
     .then(({rows}) => {
@@ -16,7 +15,6 @@ export const deleteProduct = (req, res, next) => {
     else {throw new CustomError(401,'this product dos not exist!')}
     })
     .catch((error) => {
-      console.log(error);
       next(error)
     })
 }
