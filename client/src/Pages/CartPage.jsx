@@ -6,6 +6,8 @@ import '../assets/styles/cart.css';
 export function CartPage() {
   const [carts, setCarts] = useState([]);
   const [fetch1, sendfetch1] = useState(false);
+  const [totalPrice, setTotalPrice] = useState(0);
+
   useEffect(() => {
     axios.get('http://localhost:3000/api/get-all-product')
       .then(({ data: { rows } }) => {
@@ -13,12 +15,22 @@ export function CartPage() {
       });
   }, [fetch1]);
 
+  useEffect(() => {
+    let newTotalPrice = 0;
+    for (let i = 0; i < carts.length; i++) {
+      let cartItem = carts[i];
+      newTotalPrice += cartItem.price * cartItem.count;
+      setTotalPrice(newTotalPrice);
+    }
+  }, [carts]);
+
+  // console.log(totalPrice); //! it wait loading to work.
   return (
     <div className="cart-container">
       <h1 style={{ fontWeight: '300' }}>Cart</h1>
       <div className="cart-table">
         <div className="totalPrice">
-          {carts.reduce((acc, curr) => acc + curr.price, 0)}
+          {totalPrice}
         </div>
         {carts && carts.map((cart) => {
           return <CartDiv sendfetch1={sendfetch1} fetch1={fetch1} key={cart.id} cart={cart} />
@@ -28,3 +40,5 @@ export function CartPage() {
     </div>
   );
 }
+
+//  {carts.reduce((acc, curr) => acc + curr.price, 0)}
