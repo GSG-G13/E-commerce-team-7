@@ -8,10 +8,17 @@ export default function ProductPage() {
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:3000/product/${id}`)
+    fetch(`/api/product/${id}`)
       .then((data) => data.json())
       .then((res) => setProduct(res));
   }, []);
+
+  const addToCart = (productId) => {
+    fetch(`/api/add-to-cart/${productId}`)
+      .then((data) => data.json())
+      
+  }
+
   return (
     <div className="product-page">
       <h1 style={{ fontWeight: '300', padding: '10px' }}>product</h1>
@@ -23,17 +30,23 @@ export default function ProductPage() {
           <div className="product-name">{product.name}</div>
           <div className="product-articlenr">{product.description}</div>
           <div className="product-options">
-            <span>Price:</span>
+            <p>{product.details}</p>
+            <span className="price-product">Price:</span>
             <span>
               {product.price}
               $
             </span>
           </div>
-        </div>
-        <div className="col-md-3 cart-actions">
-          <div className="product-delete">
-            <button type="button" data-toggle="tooltip" title="Ta bort" className="delete">Add to cart</button>
-          </div>
+          <button
+            type="button"
+            data-toggle="tooltip"
+            title="Ta bort"
+            className="add-tocart"
+            onClick={addToCart}
+          >
+            Add to cart
+
+          </button>
         </div>
       </div>
     </div>

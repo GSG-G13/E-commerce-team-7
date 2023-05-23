@@ -1,7 +1,7 @@
 import { addToCartQuery } from '../../database/query/index.js';
 
 export const addToCartControllers = (req, res, next) => {
-  const { body: { productId } } = req;
+  const { params: { productId } } = req;
   const { userData: { id } } = req
   addToCartQuery({ id, productId })
     .then(response => {

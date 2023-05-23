@@ -13,3 +13,6 @@
 .product-image image {
    width: 100%;
 }
+.product-name{
+  font-weight: bold;
+}
