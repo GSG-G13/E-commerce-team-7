@@ -15,9 +15,8 @@ export default function ProductPage() {
 
   const addToCart = (productId) => {
     fetch(`/api/add-to-cart/${productId}`)
-      .then((data) => data.json())
-      
-  }
+      .then((data) => data.json());
+  };
 
   return (
     <div className="product-page">
@@ -42,7 +41,7 @@ export default function ProductPage() {
             data-toggle="tooltip"
             title="Ta bort"
             className="add-tocart"
-            onClick={addToCart}
+            onClick={() => addToCart(product.id)}
           >
             Add to cart
 

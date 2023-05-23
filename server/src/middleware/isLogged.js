@@ -2,7 +2,6 @@ import { verify } from '../utils/index.js';
 
 export const isLogged = (req, res, next) => {
   const { token } = req.cookies;
-  console.log('hi');
   if (!token) {
     return next();
   }
