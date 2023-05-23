@@ -1,3 +1,3 @@
-import { getUserByEmailQuery } from "./getUserByEmail.js";
+import { getUserByEmailQuery } from './getUserByEmail.js';
 
 export { getUserByEmailQuery };

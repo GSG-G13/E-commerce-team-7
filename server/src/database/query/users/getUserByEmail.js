@@ -1,4 +1,4 @@
-import connection from "../../config/index.js";
+import { connection } from '../../config/index.js';
 
 const getUserByEmailQuery = (email) => {
   const sql = {

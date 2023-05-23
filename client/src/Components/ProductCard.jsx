@@ -1,5 +1,6 @@
 import React from 'react';
 import '../assets/styles/cards.css';
+import { Link } from 'react-router-dom';
 
 function ProductCard() {
   return (
@@ -14,7 +15,7 @@ function ProductCard() {
         <div className="product-bottom-details">
           <div className="product-price">$230.99</div>
           <div className="product-links">
-            <a href="#link"><i className="fa fa-shopping-cart" /></a>
+            <Link href="#link"><i className="fa fa-shopping-cart" /></Link>
           </div>
         </div>
       </div>

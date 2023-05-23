@@ -1,7 +1,5 @@
-// eslint-disable-next-line import/extensions
 import { verify } from '../utils/index.js';
 
-// eslint-disable-next-line import/prefer-default-export, consistent-return
 export const isLogged = (req, res, next) => {
   const { token } = req.cookies;
   if (!token) {

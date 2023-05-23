@@ -1,5 +1,6 @@
 import { getProduct } from '../../database/index.js'
 
+
 export const getProductController = (req, res, next) => {
   const { id } = req.params
   getProduct({ id })
