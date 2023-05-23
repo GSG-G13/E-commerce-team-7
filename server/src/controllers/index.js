@@ -4,6 +4,7 @@ import { decrement } from './cart/decrement.js';
 import { deleteProduct } from './cart/deleteProduct.js';
 import { getAllProductsFromCart } from './cart/getAllProductFromCart.js';
 import { increment } from './cart/increment.js';
+import { getProductController } from './products/getProduct.js';
 
 export {
   addToCartControllers,
@@ -11,5 +12,6 @@ export {
   signupController,
   deleteProduct,
   decrement,
-  increment,
-};
+  increment,}
+
+

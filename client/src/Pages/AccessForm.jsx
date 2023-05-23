@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
+// eslint-disable-next-line react/prop-types
 export function AccessForm({ endpoint }) {
   const [username, setUserName] = useState('');
   const [email, setEmail] = useState('');
@@ -16,7 +17,8 @@ export function AccessForm({ endpoint }) {
           ? { password, email }
           : { password, email, username },
       ),
-    }).then((data) => console.log(data));
+    }).then((data) => data.json())
+      .then((data) => console.log(data));
   };
 
   return (
