@@ -60,3 +60,12 @@ text-transform: uppercase;
 .form-section {
     align-self: center;
 }
+.link{
+    color :#0079d3;
+    font-weight: bold;
+}
+.error-massage{
+    color: red;
+    font-weight: bold;
+
+}
