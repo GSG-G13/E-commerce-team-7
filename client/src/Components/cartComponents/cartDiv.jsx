@@ -5,28 +5,40 @@ import axios from 'axios';
 // eslint-disable-next-line react/prop-types
 export default function CartDiv({
   cart: {
-    description, details, price, id, count
-  }, sendFetch, fetch
+    description, details, product_id , price, id,
+  }, sendfetch1, fetch1,
 }) {
   const [countNum, setCountNum] = useState(0);
 
   const handlerDelete = () => {
     axios.delete(`http://localhost:3000/api/product/${id}`)
       .then((data) => {
-        sendFetch(!fetch)
+        sendfetch1(!fetch1)
       });
   };
 
   const decrementHandler = () => {
-    fetch(`http://localhost:3000/api/decrement/${id}`)
-      .then(res => res.json())
-      .then(({ count }) => setCountNum(count));
+    console.log(product_id);
+    fetch(`http://localhost:3000/api/decrement/${product_id}`)
+      .then(((res) => res.json()))
+      .then(({count}) => setCountNum(count));
   };
   const incrementHandler = () => {
-    fetch(`http://localhost:3000/api/increment/${id}`)
-      .then(res => res.json())
-      .then(() => setCountNum(count));
-  };
+    console.log(product_id);
+    fetch(`http://localhost:3000/api/increment/${product_id}`)
+    .then(((res) => res.json()))
+    .then(({count}) => setCountNum(count));
+  }
+
+
+    // fetch(`http://localhost:3000/api/decrement/${id}`)
+  
+  // };
+  // const incrementHandler = () => {
+  //   fetch(`http://localhost:3000/api/increment/${id}`)
+  //     .then(res => res.json())
+  //     .then(() => setCountNum(count));
+  // };
 
   return (
 

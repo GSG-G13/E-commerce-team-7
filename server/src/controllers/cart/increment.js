@@ -2,10 +2,10 @@
 import { incrementCount } from '../../database/index.js';
 
 export const increment = (req, res, next) => {
-  const user_id = req.userData.id;
-  const { product_id } = req.params;
+  const userId = req.userData.id;
+  const { productId } = req.params;
 
-  incrementCount({ user_id, product_id })
+  incrementCount({ userId, productId })
     .then((data) => {
       res.json({
         count: data.rows[0].count,
