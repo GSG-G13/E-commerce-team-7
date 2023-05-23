@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 // eslint-disable-next-line import/no-unresolved
-import '../assets/styles/productPage.css';
+import '../assets/styles/productPgae.css';
 
 export default function ProductPage() {
   const { id } = useParams();

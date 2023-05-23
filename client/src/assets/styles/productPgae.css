@@ -1,0 +1,15 @@
+.product-page{
+  height: 100%;
+}
+.product-table{
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  width: 100%;
+}
+.product-image{
+  width: 35%;
+}
+.product-image image {
+   width: 100%;
+}
