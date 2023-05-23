@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
 export function AccessForm({ endpoint }) {
   const [username, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isOkey, setIsOkey] = useState(false);
   const { pathname } = useLocation();
-
+  const navigate = useNavigate();
   const accessHandler = () => {
     fetch(`/api/user${pathname}`, {
       method: 'POST',
@@ -18,8 +19,21 @@ export function AccessForm({ endpoint }) {
           : { password, email, username },
       ),
     }).then((data) => data.json())
-      .then((data) => console.log(data));
+      .then(({ status }) => {
+        if (status === 200) {
+          navigate('/');
+        }else{
+          setIsOkey(!isOkey)
+        }
+      });
   };
+
+  useEffect(() => {
+    const token = document.cookie;
+    if (token.startsWith('token')) {
+      navigate('/');
+    }
+  }, []);
 
   return (
     <div className="main-section">
@@ -69,16 +83,25 @@ export function AccessForm({ endpoint }) {
           >
             {endpoint === 'SignIn' ? 'Sign in' : 'Sign Up'}
           </button>
+          {isOkey && <p className="error-massage">you input are not valid</p>}
 
           <p>
             Forgot your
             <a href="/">username</a>
             <a href="/">password?</a>
           </p>
-
           <p>
-            New to our site?
-            <a href="/">SIGN UP</a>
+            {endpoint === 'SignIn' ? (
+              <>
+                <span> dont have account  </span>
+                <Link to="http://localhost:5173/signup" className="link">SignUp</Link>
+              </>
+            ) : (
+              <>
+                <span>already have account </span>
+                <Link to="http://localhost:5173/signin" className="link">Signin</Link>
+              </>
+            )}
           </p>
         </div>
       </div>

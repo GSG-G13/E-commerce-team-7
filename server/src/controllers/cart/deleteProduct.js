@@ -3,7 +3,6 @@ import { CustomError } from '../../utils/index.js';
 
 export const deleteProduct = (req, res, next) => {
   const { productId } = req.params;
-
   deleteFromCart({productId})
     .then(({rows}) => {
       if(rows.length > 0){
