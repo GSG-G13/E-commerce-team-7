@@ -1,6 +1,6 @@
 import { addToCartQuery } from '../../database/query/index.js';
 
-const addToCartControllers = (req, res, next) => {
+export const addToCartControllers = (req, res, next) => {
   const { body: { productId } } = req;
   console.log({ productId });
   const { userData: { id } } = req

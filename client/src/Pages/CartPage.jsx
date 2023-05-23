@@ -7,7 +7,6 @@ export function CartPage() {
   const [carts, setCarts] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [fetch, sendFetch] = useState(false);
-
   useEffect(() => {
     axios.post('http://localhost:3000/get-all-product')
       .then(({ data: { rows } }) => {

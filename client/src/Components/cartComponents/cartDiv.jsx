@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
 
 // eslint-disable-next-line react/prop-types
@@ -8,10 +8,23 @@ export default function CartDiv({
     description, details, price, id,
   }, sendFetch, fetch,
 }) {
+  const [countNum, setCountNum] = useState(0)
   const handlerDelete = () => {
     axios.delete(`http://localhost:3000/product/${id}`)
-      .then(() => sendFetch(!fetch));
+      .then((data) => {
+        sendFetch(!fetch)
+        setCountNum(data.count)
+      });
   };
+  const decrementHandler = () => {
+    axios.delete(`http://localhost:3000/decrement/${id}`)
+      .then(({ count }) => setCountNum(count));
+  };
+  const incrementHandler = () => {
+    axios.delete(`http://localhost:3000/increment/${id}`)
+      .then(({ count }) => setCountNum(count));
+  };
+
   return (
 
     <div className="row cart-row">
@@ -26,9 +39,9 @@ export default function CartDiv({
           <span>{price}</span>
         </div>
         <div className="qtySelector text-center">
-          <button className="decreaseQty">_</button>
-          <p className="qtyValue">0</p>
-          <button className="increaseQty">+</button>
+          <button type="button" className="decreaseQty" onClick={decrementHandler}>_</button>
+          <p className="qtyValue">{countNum}</p>
+          <button type="button" className="increaseQty" onClick={incrementHandler}>+</button>
         </div>
       </div>
       <div className="col-md-3 cart-actions">
