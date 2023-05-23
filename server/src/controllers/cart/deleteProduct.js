@@ -4,7 +4,6 @@ import { CustomError } from '../../utils/index.js';
 export const deleteProduct = (req, res, next) => {
   // const userId = req.userData.id
   const { productId } = req.params;
-  console.log(productId);
   deleteFromCart({productId})
     .then(({rows}) => {
       if(rows.length > 0){

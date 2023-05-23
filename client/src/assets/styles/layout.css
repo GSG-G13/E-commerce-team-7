@@ -48,6 +48,7 @@ p {
   margin: auto;
   padding-left: 25px;
   padding-right: 25px;
+  box-shadow: 2px 2px 4px 0 rgba(238, 238, 238, 0.5);
 }
 
 .row {

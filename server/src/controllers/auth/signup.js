@@ -19,7 +19,7 @@ export const signupController = (req, res, next) => {
     .then((token) => {
       res.cookie('token', token)
         .json({
-          data: { status: 201, msg: 'user signup successfully', rows: { username, email } },
+          data: { status: 201, msg: 'user signup successfully', rows: { id, username, email } },
         });
     })
     .catch((err) => {

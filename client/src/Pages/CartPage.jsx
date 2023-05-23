@@ -7,17 +7,24 @@ import CartDiv from '../Components/cartComponents/cartDiv';
 // eslint-disable-next-line import/prefer-default-export
 export function CartPage() {
   const [carts, setCarts] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [fetch, sendFetch] = useState(false);
+
   useEffect(() => {
     axios.post('http://localhost:3000/get-all-product')
       .then(({ data: { rows } }) => {
         setCarts(rows);
       });
-  }, []);
+  }, [fetch]);
+
   return (
     <div className="cart-container">
       <h1 style={{ fontWeight: '300' }}>Cart</h1>
       <div className="cart-table">
-        {carts && carts.map((cart) => <CartDiv key={cart.id} cart={cart} />)}
+        <div className="totalPrice">
+          {carts.reduce((acc, curr) => acc + curr.price, 0)}
+        </div>
+        {carts && carts.map((cart) => <CartDiv sendFetch={sendFetch} fetch={fetch}  key={cart.id} cart={cart} />)}
 
       </div>
     </div>

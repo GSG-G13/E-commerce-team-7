@@ -1,6 +1,8 @@
-import {addToCartQuery} from '../../database/query/index.js'
+import { addToCartQuery } from '../../database/query/index.js';
+
 const addToCartControllers = (req, res, next) => {
     const { body: { productId } } = req;
+    console.log({productId});
     const {userData: { id } } = req
     addToCartQuery({id, productId})
     .then(response => {
@@ -9,7 +11,8 @@ const addToCartControllers = (req, res, next) => {
             data:response.rows[0]
         })
     })
-    .catch(error => {
+        .catch(error => {
+        console.log(error);
         next(error)
     })
 
