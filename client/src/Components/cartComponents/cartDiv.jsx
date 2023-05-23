@@ -5,24 +5,27 @@ import axios from 'axios';
 // eslint-disable-next-line react/prop-types
 export default function CartDiv({
   cart: {
-    description, details, price, id,
-  }, sendFetch, fetch,
+    description, details, price, id, count
+  }, sendFetch, fetch
 }) {
-  const [countNum, setCountNum] = useState(0)
+  const [countNum, setCountNum] = useState(0);
+
   const handlerDelete = () => {
-    axios.delete(`http://localhost:3000/product/${id}`)
+    axios.delete(`http://localhost:3000/api/product/${id}`)
       .then((data) => {
         sendFetch(!fetch)
-        setCountNum(data.count)
       });
   };
+
   const decrementHandler = () => {
-    axios.delete(`http://localhost:3000/decrement/${id}`)
+    fetch(`http://localhost:3000/api/decrement/${id}`)
+      .then(res => res.json())
       .then(({ count }) => setCountNum(count));
   };
   const incrementHandler = () => {
-    axios.delete(`http://localhost:3000/increment/${id}`)
-      .then(({ count }) => setCountNum(count));
+    fetch(`http://localhost:3000/api/increment/${id}`)
+      .then(res => res.json())
+      .then(() => setCountNum(count));
   };
 
   return (
