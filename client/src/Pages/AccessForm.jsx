@@ -7,8 +7,8 @@ export function AccessForm({ endpoint }) {
   const [password, setPassword] = useState('');
   const { pathname } = useLocation();
 
-  const accessHandler = async () => {
-    await fetch(`http://127.0.0.1:3000/user${pathname}`, {
+  const accessHandler = () => {
+    fetch(`http://127.0.0.1:3000/user${pathname}`, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(
@@ -16,7 +16,7 @@ export function AccessForm({ endpoint }) {
           ? { password, email }
           : { password, email, username },
       ),
-    });
+    }).then((data) => console.log(data));
   };
 
   return (
