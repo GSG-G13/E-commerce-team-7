@@ -9,7 +9,7 @@ export function CartPage() {
   const [fetch, sendFetch] = useState(false);
 
   useEffect(() => {
-    axios.post('http://localhost:3000/get-all-product')
+    axios.get('/api/get-all-product')
       .then(({ data: { rows } }) => {
         setCarts(rows);
       });
