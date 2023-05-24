@@ -19,7 +19,7 @@ export const decrementCount = ({ user_id, product_id }) => {
     values: [user_id, product_id],
   };
 
-  return checkCount({ user_id, product_id })
+  return checkCount({ user_id, product_id})
     .then((data) => data.rows[0])
     .then((product) => {
       if (product) {
