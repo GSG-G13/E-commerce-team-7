@@ -19,7 +19,7 @@ export function HomePage() {
   const handleCategory = (e) => {
     setCategory(e.target.value);
   };
-  const filterData = products.filter((product) => product.category_id === +category || +category === 0);
+  const filterData = products.filter((product) => product.category_id === +category || +category === 0).filter((product) => product.price > price);
   console.log(filterData);
  
 
