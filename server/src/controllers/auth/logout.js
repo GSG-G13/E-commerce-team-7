@@ -7,7 +7,8 @@ export const logoutController = (req, res) => {
       message: 'not authenticated'
     })
   } else {
-    res.json({
+    res.clearCookie("token").json({
+      status: 200,
       message: 'User Logged Out Successfully',
     })
   }

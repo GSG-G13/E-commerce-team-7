@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import CartDiv from '../Components/cartComponents/cartDiv';
 import '../assets/styles/layout.css'
@@ -9,6 +10,7 @@ export function CartPage() {
   const [carts, setCarts] = useState([]);
   const [fetch, sendFetch] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get('/api/get-all-product')
@@ -19,14 +21,19 @@ export function CartPage() {
 
   useEffect(() => {
     let newTotalPrice = 0;
-
     carts.map((cartItem) => {
       newTotalPrice += cartItem.price * cartItem.count;
       setTotalPrice(newTotalPrice);
-    })
+    });
   }, [carts]);
 
-  // console.log(totalPrice); //! it wait loading to work.
+  useEffect(() => {
+    const token = document.cookie;
+    if (!token.startsWith('token')) {
+      navigate('/');
+    }
+  }, []);
+
   return (
     <div className="cart-container">
       <h1 style={{ fontWeight: '300' }}>Cart</h1>
@@ -34,10 +41,12 @@ export function CartPage() {
         <div className="totalPrice">
           {totalPrice}
         </div>
-        {carts && carts.map((cart) => <CartDiv sendfetch1={sendFetch} fetch1={fetch} key={cart.id} cart={cart} />)}
+        {carts && carts.map((cart) =>
+          <CartDiv sendfetch1={sendFetch} fetch1={fetch} key={cart.id} cart={cart} />
+        )}
+
       </div>
     </div>
   );
 }
 
-//  {carts.reduce((acc, curr) => acc + curr.price, 0)}
