@@ -9,7 +9,7 @@ export function CartPage() {
   const [fetch, sendFetch] = useState(false);
 
   useEffect(() => {
-    axios.post('http://localhost:3000/get-all-product')
+    axios.get('/api/get-all-product')
       .then(({ data: { rows } }) => {
         setCarts(rows);
       });
@@ -22,7 +22,7 @@ export function CartPage() {
         <div className="totalPrice">
           {carts.reduce((acc, curr) => acc + curr.price, 0)}
         </div>
-        {carts && carts.map((cart) => <CartDiv sendFetch={sendFetch} fetch={fetch}  key={cart.id} cart={cart} />)}
+        {carts && carts.map((cart) => <CartDiv sendfetch1={sendFetch} fetch1={fetch} key={cart.id} cart={cart} />)}
 
       </div>
     </div>
