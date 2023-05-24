@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import CartDiv from '../Components/cartComponents/cartDiv';
-import '../assets/styles/layout.css'
+import '../assets/styles/layout.css';
 import '../assets/styles/cart.css';
 import '../assets/styles/cards.css';
 
@@ -41,12 +41,9 @@ export function CartPage() {
         <div className="totalPrice">
           {totalPrice}
         </div>
-        {carts && carts.map((cart) =>
-          <CartDiv sendfetch1={sendFetch} fetch1={fetch} key={cart.id} cart={cart} />
-        )}
-
+        {carts && carts.map((cart) => 
+          <CartDiv sendfetch1={sendFetch} fetch1={fetch} key={cart.id} cart={cart} />)}
       </div>
     </div>
   );
 }
-
