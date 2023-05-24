@@ -1,10 +1,10 @@
 import { decrementCount } from '../../database/index.js';
 
 export const decrement = (req, res, next) => {
-  const userId = req.userData.id;
-  const { productId } = req.params;
+  const user_id = req.userData.id;
+  const { product_id } = req.params;
 
-  decrementCount({ userId, productId })
+  decrementCount({ user_id, product_id })
     .then((data) => {
       if (!data.rows.length) {
         return res.json({

@@ -7,16 +7,15 @@ import '../assets/styles/cards.css';
 
 export function CartPage() {
   const [carts, setCarts] = useState([]);
-  const [fetch1, sendfetch1] = useState(false);
+  const [fetch, sendFetch] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/get-all-product')
+    axios.get('/api/get-all-product')
       .then(({ data: { rows } }) => {
         setCarts(rows);
       });
-  }, [fetch1]);
-  console.log(carts);
+  }, [fetch]);
 
   useEffect(() => {
     let newTotalPrice = 0;
@@ -35,10 +34,7 @@ export function CartPage() {
         <div className="totalPrice">
           {totalPrice}
         </div>
-        {carts && carts.map((cart) => {
-          return <CartDiv sendfetch1={sendfetch1} fetch1={fetch1} key={cart.id} cart={cart} />
-        })}
-
+        {carts && carts.map((cart) => <CartDiv sendfetch1={sendFetch} fetch1={fetch} key={cart.id} cart={cart} />)}
       </div>
     </div>
   );

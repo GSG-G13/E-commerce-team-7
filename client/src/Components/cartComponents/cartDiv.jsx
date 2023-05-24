@@ -9,23 +9,22 @@ export default function CartDiv({
   }, sendfetch1, fetch1,
 }) {
   const [countNum, setCountNum] = useState(count);
-
   const handlerDelete = () => {
-    axios.delete(`http://localhost:3000/api/product/${id}`)
+    axios.delete(`/api/product/${product_id}`)
       .then((data) => {
-        sendfetch1(!fetch1)
+        sendfetch1(!fetch1);
       });
   };
 
   const decrementHandler = () => {
     console.log(product_id);
-    fetch(`http://localhost:3000/api/decrement/${product_id}`)
+    fetch(`/api/decrement/${product_id}`)
       .then(((res) => res.json()))
       .then(({ count }) => setCountNum(count));
   };
   const incrementHandler = () => {
     console.log(product_id);
-    fetch(`http://localhost:3000/api/increment/${product_id}`)
+    fetch(`/api/increment/${product_id}`)
       .then(((res) => res.json()))
       .then(({ count }) => setCountNum(count));
   }

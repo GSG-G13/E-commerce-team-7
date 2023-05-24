@@ -48,26 +48,26 @@ VALUES
 
 
 
-INSERT INTO products (category_id, description, price, discount, details) VALUES
-    (1, 'Running Shoes', 50, 0.1, 'Lorem ipsum dolor sit amet'),
-    (1, 'Sneakers', 80, 0.2, 'Lorem ipsum dolor sit amet'),
-    (1, 'Boots', 120, 0.15, 'Lorem ipsum dolor sit amet'),
-    (1, 'Sandals', 60, 0.05, 'Lorem ipsum dolor sit amet'),
-    (2, 'T-Shirt', 20, 0.1, 'Lorem ipsum dolor sit amet'),
-    (2, 'Polo Shirt', 30, 0.15, 'Lorem ipsum dolor sit amet'),
-    (2, 'Button-down Shirt', 40, 0.2, 'Lorem ipsum dolor sit amet'),
-    (2, 'Long Sleeve Shirt', 35, 0.05, 'Lorem ipsum dolor sit amet'),
-    (3, 'Leather Jacket', 150, 0.1, 'Lorem ipsum dolor sit amet'),
-    (3, 'Denim Jacket', 100, 0.15, 'Lorem ipsum dolor sit amet'),
-    (3, 'Bomber Jacket', 120, 0.2, 'Lorem ipsum dolor sit amet'),
-    (3, 'Windbreaker', 90, 0.05, 'Lorem ipsum dolor sit amet'),
-    (4, 'Jeans', 60, 0.1, 'Lorem ipsum dolor sit amet'),
-    (4, 'Chinos', 50, 0.15, 'Lorem ipsum dolor sit amet'),
-    (4, 'Cargo Pants', 70, 0.2, 'Lorem ipsum dolor sit amet'),
-    (5, 'Crewneck Sweater', 70, 0.1, 'Lorem ipsum dolor sit amet'),
-    (5, 'V-neck Sweater', 80, 0.15, 'Lorem ipsum dolor sit amet'),
-    (5, 'Cardigan Sweater', 90, 0.2, 'Lorem ipsum dolor sit amet'),
-    (5, 'Turtleneck Sweater', 75, 0.05, 'Lorem ipsum dolor sit amet');
+INSERT INTO products (category_id, description, price, discount, details, name, image) VALUES
+    (1, 'Running Shoesoij sadasd ', 50, 0.1, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (1, 'Sneakerssad asasdsad as', 80, 0.2, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (1, 'Bootsasd asdasd asd asd asd', 120, 0.15, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (1, 'Sandalsasas das dasa dd asd', 60, 0.05, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (2, 'T-Shirt asdasdas dsad asd', 20, 0.1, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (2, 'Polo Shirts adasd asd', 30, 0.15, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (2, 'Button-down Shirta sdasasd', 40, 0.2, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (2, 'Long Sleeve Shirtsa sad asd asd asd', 35, 0.05, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (3, 'Leather Jacket sadasd asd asd sad', 150, 0.1, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (3, 'Denim Jacketsad asd asd asd asda d', 100, 0.15, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (3, 'Bomber Jacksa dasd asdfet', 120, 0.2, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (3, 'Windbreaadsf adfasf asfsafker', 90, 0.05, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (4, 'Jeaas fasfasf saf asf saf safns', 60, 0.1, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (4, 'Chisa fasf asf asf asfsanos', 50, 0.15, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (4, 'Car asfas fgo Pants', 70, 0.2, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (5, 'Crewneck Swe safasf as fsaf ater', 70, 0.1, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (5, 'V-neck Swe asfsaf asf fsaater', 80, 0.15, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (5, 'Cardigan Swe asfasf asf safater', 90, 0.2, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (5, 'Turtleneck Swe asfsa fasf asfasfater', 75, 0.05, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg');
 
     INSERT INTO cart (user_id, product_id) VALUES 
     (1,1),

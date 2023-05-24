@@ -1,25 +1,25 @@
 /* eslint-disable camelcase */
 import { connection } from '../../config/connection.js';
 
-const checkCount = ({ userId, productId }) => {
+export const checkCount = ({ user_id, product_id }) => {
   const sql = {
     text: 'SELECT count FROM cart WHERE user_id=$1 AND product_id=$2',
-    values: [userId, productId],
+    values: [user_id, product_id],
   };
   return connection.query(sql);
 };
 
-export const incrementCount = ({ userId, productId }) => checkCount({ userId, productId })
+export const incrementCount = ({ user_id, product_id }) => checkCount({ user_id, product_id })
   .then((data) => data.rows[0])
-  .then((product) => connection.query(`UPDATE cart SET count =${product.count + 1} WHERE user_id =${userId} AND product_id =${productId} RETURNING *;`));
+  .then((product) => connection.query(`UPDATE cart SET count =${product.count + 1} WHERE user_id =${user_id} AND product_id =${product_id} RETURNING *;`));
 
-export const decrementCount = ({ userId, productId }) => {
+export const decrementCount = ({ user_id, product_id }) => {
   const sql = {
     text: 'DELETE FROM cart WHERE user_id =$1 AND product_id =$2;',
-    values: [userId, productId],
+    values: [user_id, product_id],
   };
 
-  return checkCount({ userId, productId})
+  return checkCount({ user_id, product_id})
     .then((data) => data.rows[0])
     .then((product) => {
       if (product) {
@@ -27,6 +27,6 @@ export const decrementCount = ({ userId, productId }) => {
           return connection.query(sql);
         }
       }
-      return connection.query(`UPDATE cart SET count = ${product.count - 1} WHERE user_id = ${userId} AND product_id = ${productId} RETURNING *;`);
+      return connection.query(`UPDATE cart SET count = ${product.count - 1} WHERE user_id = ${user_id} AND product_id = ${product_id} RETURNING *;`);
     });
 };
