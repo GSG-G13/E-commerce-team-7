@@ -1,8 +1,13 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import '../assets/styles/cards.css';
 import { Link } from 'react-router-dom';
 
-function ProductCard({product : {name,image , description , price, discount, details}}) {
+function ProductCard({
+  product: {
+    name, image, description, price, discount, details,
+  },
+}) {
   return (
     <div className="product-card">
       <div className="product-tumb">
