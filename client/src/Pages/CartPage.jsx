@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import CartDiv from '../Components/cartComponents/cartDiv';
+import '../assets/styles/layout.css'
 import '../assets/styles/cart.css';
+import '../assets/styles/cards.css';
 
 export function CartPage() {
   const [carts, setCarts] = useState([]);
@@ -14,14 +16,15 @@ export function CartPage() {
         setCarts(rows);
       });
   }, [fetch1]);
+  console.log(carts);
 
   useEffect(() => {
     let newTotalPrice = 0;
-    for (let i = 0; i < carts.length; i++) {
-      let cartItem = carts[i];
+
+    carts.map((cartItem) => {
       newTotalPrice += cartItem.price * cartItem.count;
       setTotalPrice(newTotalPrice);
-    }
+    })
   }, [carts]);
 
   // console.log(totalPrice); //! it wait loading to work.

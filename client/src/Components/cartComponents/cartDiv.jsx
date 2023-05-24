@@ -5,10 +5,10 @@ import axios from 'axios';
 // eslint-disable-next-line react/prop-types
 export default function CartDiv({
   cart: {
-    description, details, product_id, price, id,
+    description, details, product_id, price, id, count
   }, sendfetch1, fetch1,
 }) {
-  const [countNum, setCountNum] = useState(0);
+  const [countNum, setCountNum] = useState(count);
 
   const handlerDelete = () => {
     axios.delete(`http://localhost:3000/api/product/${id}`)
