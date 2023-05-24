@@ -5,6 +5,7 @@ import { deleteProduct } from './cart/deleteProduct.js';
 import { getAllProductsFromCart } from './cart/getAllProductFromCart.js';
 import { increment } from './cart/increment.js';
 import { getProductController } from './products/getProduct.js';
+import { logoutController } from './auth/logout.js';
 
 export {
   addToCartControllers,
@@ -12,6 +13,8 @@ export {
   signupController,
   deleteProduct,
   decrement,
-  increment,}
+  increment,
+  logoutController
+}
 
 

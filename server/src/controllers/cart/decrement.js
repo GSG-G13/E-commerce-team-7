@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { decrementCount } from '../../database/index.js';
 
 export const decrement = (req, res, next) => {

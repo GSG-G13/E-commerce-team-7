@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import '../assets/styles/login.css';
 
 // eslint-disable-next-line react/prop-types
 export function AccessForm({ endpoint }) {
