@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable max-len */
 /* eslint-disable import/prefer-default-export */
 import React, { useEffect, useState } from 'react';
@@ -8,6 +10,8 @@ export function HomePage() {
   const [category, setCategory] = useState(0);
   const [price, setPrice] = useState('0');
   const [products, setProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4; // Number of items to display per page
 
   useEffect(() => {
     fetch('http://localhost:3000/api//products')
@@ -16,12 +20,20 @@ export function HomePage() {
         setProducts(data);
       });
   }, []);
+  const filterData = products.filter((product) => product.category_id === +category || +category === 0).filter((product) => product.price > price);
+  const totalPages = Math.ceil(filterData.length / itemsPerPage);
+
+  // Get the current page's data
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filterData.slice(indexOfFirstItem, indexOfLastItem);
+
   const handleCategory = (e) => {
     setCategory(e.target.value);
   };
-  const filterData = products.filter((product) => product.category_id === +category || +category === 0).filter((product) => product.price > price);
-  console.log(filterData);
- 
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <div className="small-container">
@@ -38,14 +50,14 @@ export function HomePage() {
         </select>
       </div>
       <div className="product-list">
-        {filterData.map((product) => <ProductCard product={product} key={product.id} />)}
+        {currentItems.map((product) => <ProductCard product={product} key={product.id} />)}
       </div>
       <div className="page-btn" id="pagination">
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-        <span>5</span>
+        <span onClick={() => handlePageChange(1)}>1</span>
+        <span onClick={() => handlePageChange(2)}>2</span>
+        <span onClick={() => handlePageChange(3)}>3</span>
+        <span onClick={() => handlePageChange(4)}>4</span>
+        <span onClick={() => handlePageChange(5)}>5</span>
       </div>
     </div>
   );
