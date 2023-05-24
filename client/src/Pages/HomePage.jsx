@@ -1,7 +1,6 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable max-len */
-/* eslint-disable import/prefer-default-export */
 import React, { useEffect, useState } from 'react';
 import '../assets/styles/layout.css';
 import ProductCard from '../Components/ProductCard';
@@ -11,7 +10,7 @@ export function HomePage() {
   const [price, setPrice] = useState('0');
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4; // Number of items to display per page
+  const itemsPerPage = 4;
 
   useEffect(() => {
     fetch('http://localhost:3000/api//products')
@@ -20,7 +19,8 @@ export function HomePage() {
         setProducts(data);
       });
   }, []);
-  const filterData = products.filter((product) => product.category_id === +category || +category === 0).filter((product) => product.price > price);
+  const filterData = products.filter((product) => product.category_id === +category || +category === 0)
+    .filter((product) => product.price > price);
   const totalPages = Math.ceil(filterData.length / itemsPerPage);
 
   // Get the current page's data

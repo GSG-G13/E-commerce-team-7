@@ -12,7 +12,7 @@ function ProductCard({
 }) {
   return (
     <>
-      <NavLink to={`product/${id}`}> link</NavLink>
+      <Link to={`product/${id}`}> link</Link>
       <div className="product-card">
         <div className="product-tumb">
           <img src={image} width="100%" alt="" />
