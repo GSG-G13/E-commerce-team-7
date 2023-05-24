@@ -1,16 +1,27 @@
+/* eslint-disable max-len */
 /* eslint-disable import/prefer-default-export */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../assets/styles/layout.css';
 import ProductCard from '../Components/ProductCard';
 
 export function HomePage() {
-  const [category, setCategory] = useState('All');
-  const [price, setPrice] = useState(0);
+  const [category, setCategory] = useState(0);
+  const [price, setPrice] = useState('0');
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/api//products')
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data);
+      });
+  }, []);
   const handleCategory = (e) => {
     setCategory(e.target.value);
   };
-  console.log(price);
-  const filterData = (arrayToFilter, value) => arrayToFilter.filter((product) => product === value);
+  const filterData = products.filter((product) => product.category_id === +category || +category === 0).filter((product) => product.price > price);
+  console.log(filterData);
+ 
 
   return (
     <div className="small-container">
@@ -18,16 +29,16 @@ export function HomePage() {
         <h2>All Products</h2>
         <input type="range" id="points" name="points" min="0" max="500" onChange={(e) => setPrice(e.target.value)} />
         <select value={category} onChange={handleCategory}>
-          <option value="All">All</option>
-          <option value="sweater">Short by sweater</option>
-          <option value="shoes">Short by shoes</option>
-          <option value="shirt">Short by shirt</option>
-          <option value="jacket">Short by jacket</option>
-          <option value="trousers">Short by trousers</option>
+          <option value="0">All</option>
+          <option value="5">Short by sweater</option>
+          <option value="1">Short by shoes</option>
+          <option value="2">Short by shirt</option>
+          <option value="3">Short by jacket</option>
+          <option value="4">Short by trousers</option>
         </select>
       </div>
       <div className="product-list">
-        <ProductCard />
+        {filterData.map((product) => <ProductCard product={product} key={product.id} />)}
       </div>
       <div className="page-btn" id="pagination">
         <span>1</span>
