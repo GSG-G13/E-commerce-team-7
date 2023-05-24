@@ -1,19 +1,35 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import axios from 'axios';
 
 // eslint-disable-next-line react/prop-types
 export default function CartDiv({
   cart: {
-    description, details, price, id,
-  }, sendFetch, fetch,
+    description, details, product_id, price, id, count
+  }, sendfetch1, fetch1,
 }) {
+  const [countNum, setCountNum] = useState(count);
   const handlerDelete = () => {
-    axios.delete(`http://localhost:3000/product/${id}`)
-      .then(() => sendFetch(!fetch));
+    axios.delete(`/api/product/${product_id}`)
+      .then((data) => {
+        sendfetch1(!fetch1);
+      });
   };
-  return (
 
+  const decrementHandler = () => {
+    console.log(product_id);
+    fetch(`/api/decrement/${product_id}`)
+      .then(((res) => res.json()))
+      .then(({ count }) => setCountNum(count));
+  };
+  const incrementHandler = () => {
+    console.log(product_id);
+    fetch(`/api/increment/${product_id}`)
+      .then(((res) => res.json()))
+      .then(({ count }) => setCountNum(count));
+  }
+
+  return (
     <div className="row cart-row">
       <div className="col-xs-12 col-md-2">
         <img src="https://w7.pngwing.com/pngs/323/773/png-transparent-sneakers-basketball-shoe-sportswear-nike-shoe-outdoor-shoe-running-sneakers-thumbnail.png" width="100%" alt="" />
@@ -23,12 +39,12 @@ export default function CartDiv({
         <div className="product-articlenr">{details}</div>
         <div className="product-options">
           <span>Price</span>
-          <span>{price}</span>
+          <span>{price * countNum}</span>
         </div>
         <div className="qtySelector text-center">
-          <button className="decreaseQty">_</button>
-          <p className="qtyValue">0</p>
-          <button className="increaseQty">+</button>
+          <button type="button" className="decreaseQty" onClick={decrementHandler}>_</button>
+          <p className="qtyValue">{countNum}</p>
+          <button type="button" className="increaseQty" onClick={incrementHandler}>+</button>
         </div>
       </div>
       <div className="col-md-3 cart-actions">
