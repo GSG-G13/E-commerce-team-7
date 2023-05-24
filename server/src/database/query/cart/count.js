@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import { connection } from '../../config/connection.js';
 
-const checkCount = ({ user_id, product_id }) => {
+export const checkCount = ({ user_id, product_id }) => {
   const sql = {
     text: 'SELECT count FROM cart WHERE user_id=$1 AND product_id=$2',
     values: [user_id, product_id],

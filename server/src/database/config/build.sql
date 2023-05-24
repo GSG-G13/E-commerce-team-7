@@ -18,6 +18,8 @@ CREATE TABLE category(
 );
 CREATE TABLE products(
     id SERIAL PRIMARY KEY,
+    name VARCHAR(200),
+    image TEXT NOT NULL,
     category_id INTEGER NOT NULL REFERENCES category(id),
     description TEXT NOT NULL,
     price INTEGER NOT NULL,
