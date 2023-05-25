@@ -1,3 +1,7 @@
+.cart-container{
+  min-height: 50vh;
+}
+
 .cart-container h1{
   padding-left: 9.8rem;
 }

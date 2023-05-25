@@ -27,7 +27,7 @@ export function NavBar() {
   });
 
   return (
-    <div>
+    <div className="navbar-container">
       <div className="container">
         <div className="navbar">
           <div className="logo">
@@ -46,10 +46,15 @@ export function NavBar() {
                   </>
                 )}
 
-              {/* <li><i className="fa-solid fa-arrow-right-from-bracket" onClick={logoutHandler} /></li> */}
+              {/* <li>
+            <i className="fa-solid fa-arrow-right-from-bracket" onClick={logoutHandler} />
+          </li> */}
             </ul>
           </nav>
-          <Link to="cart"><i className="fa fa-shopping-cart" /></Link>
+          <Link className="cart-icon" to="cart">
+            <div className="amount-circle">10</div>
+            <i className="fa fa-shopping-cart" />
+          </Link>
         </div>
       </div>
     </div>

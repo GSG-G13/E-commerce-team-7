@@ -11,25 +11,24 @@ function ProductCard({
   },
 }) {
   return (
-    <>
-      <Link to={`product/${id}`}> link</Link>
-      <div className="product-card">
-        <div className="product-tumb">
-          <img src={image} width="100%" alt="" />
-        </div>
-        <div className="product-details">
-          <span className="product-catagory">{details}</span>
-          <h4>{description}</h4>
-          <p>{details}</p>
-          <div className="product-bottom-details">
-            <div className="product-price">{price}</div>
-            <div className="product-links">
-              <Link to="/"><i className="fa fa-shopping-cart" /></Link>
-            </div>
+    <div className="product-card">
+      <div className="product-tumb">
+        <Link to={`product/${id}`}>
+          <img src={image} width="100%" alt="image" />
+        </Link>
+      </div>
+      <div className="product-details">
+        <span className="product-catagory">{details}</span>
+        <h4>{description}</h4>
+        <p>{details}</p>
+        <div className="product-bottom-details">
+          <div className="product-price">{price}</div>
+          <div className="product-links">
+            <Link to="/"><i className="fa fa-shopping-cart" /></Link>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

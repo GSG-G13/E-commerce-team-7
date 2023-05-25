@@ -11,6 +11,7 @@ export function HomePage() {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;
+  const categoryOptions = ['All', 'Short by sweater', 'Short by shirts', 'Short by shoes', 'Short by jacket', 'short by trousers '];
 
   useEffect(() => {
     fetch('http://localhost:3000/api//products')
@@ -36,29 +37,44 @@ export function HomePage() {
   };
 
   return (
-    <div className="small-container">
-      <div className="row row-2">
-        <h2>All Products</h2>
-        <input type="range" id="points" name="points" min="0" max="500" onChange={(e) => setPrice(e.target.value)} />
-        <select value={category} onChange={handleCategory}>
-          <option value="0">All</option>
-          <option value="5">Short by sweater</option>
-          <option value="1">Short by shoes</option>
-          <option value="2">Short by shirt</option>
-          <option value="3">Short by jacket</option>
-          <option value="4">Short by trousers</option>
-        </select>
-      </div>
-      <div className="product-list">
-        {currentItems.map((product) => <ProductCard product={product} key={product.id} />)}
-      </div>
-      <div className="page-btn" id="pagination">
-        <span onClick={() => handlePageChange(1)}>1</span>
-        <span onClick={() => handlePageChange(2)}>2</span>
-        <span onClick={() => handlePageChange(3)}>3</span>
-        <span onClick={() => handlePageChange(4)}>4</span>
-        <span onClick={() => handlePageChange(5)}>5</span>
+    <div className="parent">
+      <aside className="sidebar">
+        <p className="filter-title">Filters</p>
+        <fieldset className="price-filter">
+          <legend>Price</legend>
+          <input type="range" id="points" name="points" min="0" max="500" onChange={(e) => setPrice(e.target.value)} />
+        </fieldset>
+        <fieldset className="category-filter">
+          <legend>Category</legend>
+          <div className="radio-container">
+            {
+              categoryOptions.map((option) => (
+                <div className="radio" key={option}>
+                  <input className="cat-input" id={option} name="radio" type="radio" value={option} />
+                  <label htmlFor={option} className="radio-label">{option}</label>
+                </div>
+              ))
+            }
+          </div>
+        </fieldset>
+
+      </aside>
+      <div className="small-container">
+        <div className="row row-2">
+          <h2 className="product-title">All Products</h2>
+        </div>
+        <div className="product-list">
+          {currentItems.map((product) => <ProductCard product={product} key={product.id} />)}
+        </div>
+        <div className="page-btn" id="pagination">
+          <span onClick={() => handlePageChange(1)}>1</span>
+          <span onClick={() => handlePageChange(2)}>2</span>
+          <span onClick={() => handlePageChange(3)}>3</span>
+          <span onClick={() => handlePageChange(4)}>4</span>
+          <span onClick={() => handlePageChange(5)}>5</span>
+        </div>
       </div>
     </div>
+
   );
 }
