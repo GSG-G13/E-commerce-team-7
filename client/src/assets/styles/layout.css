@@ -599,3 +599,13 @@ form a {
     display: none;
   }
 }
+.search-input{
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f7f7f7;
+  width: 100%;
+}
+.search-input::placeholder {
+  color: #999;
+}

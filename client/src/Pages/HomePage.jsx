@@ -46,10 +46,10 @@ export function HomePage() {
     <div className="parent">
       <aside className="sidebar">
         <p className="filter-title">Filters</p>
-        <input type="text" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
+        <input type="text" className="search-input" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
         <fieldset className="price-filter">
           <legend>Price</legend>
-          <input type="range" min={0} max={9} value={price} onChange={(e) => { setPrice(e.target.value); }} />
+          <input type="range" min={0} max={200} step={5} value={price} onChange={(e) => { setPrice(e.target.value); }} />
         </fieldset>
         <fieldset className="category-filter">
           <legend>Category</legend>
@@ -57,7 +57,7 @@ export function HomePage() {
             {
               categoryOptions.map((option, index) => (
                 <label htmlFor={option} className="radio-label" key={index}>
-                  <input className="cat-input" id={option} name="category" type="radio" value={index} onChange={handleCategory} />
+                  <input className="cat-input" id={option} checked={category === 0} name="category" type="radio" value={index} onChange={handleCategory} />
                   {option}
                 </label>
               ))
