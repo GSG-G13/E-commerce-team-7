@@ -98,9 +98,45 @@ describe('testing Auth Queries', () => {
       done(error);
     });
   });
-  // deleteFromCart
-  // signupQuery
+  test('test signup query and make sure that create user', (done) => {
+    signupQuery({username: 'ahmad ahmad', email:'ahmad@gmail.com', password:'123456'})
+    .then((data) => {
+      expect(200);
+      expect(typeof data).toBe('object');
+      expect(data.status).toBe(200);
+      expect(data.msg).toBe("user signup successfully")
+      expect(typeof data.rows).toBe('object')
+      expect(data.rows.username).toBe('ahmad ahmad')
+      expect(data.rows.email).toBe('ahmad@gmail.com')
+      done()
+    }).catch(error => {
+      done(error)
+    })
+  })
+  test('test signup query and make sure that create user', (done) => {
+    signupQuery({username: 'ahmad ahmad', email:'ahmad@gmail.com', password:'123456'})
+    .then((data) => {
+      expect(typeof data).toBe('object');
+      expect(data.status).toBe(401);
+      expect(data.msg).toBe('this user is logged');
+      done()
+    })
+    .catch((erorr) => {
+      done(erorr)
+    })
 
+});
+  test('test deleting from cart query and sure every thing is good', (done) => {
+    deleteFromCart({productId: 4})
+    .then(({rows}) => {
+      expect(200);
+      expect(Array.isArray(rows)).toBe(true);
+      expect(typeof rows[0]).toBe('object');
+      done();
+    }).catch(error => {
+      done(error)
+    }) 
+  })
 })
 
 
