@@ -1,10 +1,10 @@
-const pg = require('pg');
-// import {} from 'dotenv/config';
-require('dotenv').config()
-// const connectionString = process.env.DB_URL;
+import pg from 'pg';
+import {} from 'dotenv/config';
+
 const {
-  DB_URL,
+  DEV_DB_URL,
   TEST_DB_URL,
+  DB_URL,
   NODE_ENV,
 } = process.env;
 
@@ -13,9 +13,9 @@ let DB = '';
 if (NODE_ENV === 'test') {
   DB = TEST_DB_URL;
 } else if (NODE_ENV === 'development') {
-  DB = DEV_DB_URL;
-} else {
   DB = DB_URL;
+} else {
+  DB = DEV_DB_URL;
 }
 
 const options = {
