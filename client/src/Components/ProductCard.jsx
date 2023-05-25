@@ -24,12 +24,12 @@ function ProductCard({
   return (
     <div className="product-card">
       <div className="product-tumb">
-        <img src={image} width="100%" alt="" />
+        <Link to={`product/${id}`}>
+          <img src={image} width="100%" alt="image" />
+        </Link>
       </div>
       <div className="product-details">
-        <Link to={`product/${id}`}>{name}</Link>
-        <br />
-        <br />
+        <span className="product-catagory">{details}</span>
         <h4>{description}</h4>
         <p>{details}</p>
         <div className="product-bottom-details">

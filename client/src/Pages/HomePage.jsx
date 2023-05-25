@@ -8,14 +8,15 @@ import ProductCard from '../Components/ProductCard';
 
 export function HomePage() {
   const [category, setCategory] = useState(0);
-  const [price, setPrice] = useState('0');
+  const [price, setPrice] = useState(0);
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState('');
   const itemsPerPage = 4;
+  const categoryOptions = ['All', 'Short by shoes', 'Short by shirts', 'Short by jacket', 'short by trousers ', 'Short by sweater'];
 
   useEffect(() => {
-    fetch('http://localhost:3000/api//products')
+    fetch('/api/products')
       .then((response) => response.json())
       .then((data) => {
         setProducts(data);
@@ -23,7 +24,7 @@ export function HomePage() {
   }, []);
 
   const filterData = products.filter((product) => product.category_id === +category || +category === 0)
-    .filter((product) => product.price > price);
+    .filter((product) => +product.price > +price);
   const totalPages = Math.ceil(filterData.length / itemsPerPage);
 
   // Get the current page's data
@@ -40,26 +41,41 @@ export function HomePage() {
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
   return (
-    <div className="small-container">
-      <div className="row row-2">
-        <input type="text" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
-        <h2>All Products</h2>
-        <input type="range" id="points" name="points" min="0" max="500" onChange={(e) => setPrice(e.target.value)} />
-        <select value={category} onChange={handleCategory}>
-          <option value="0">All</option>
-          <option value="5">Short by sweater</option>
-          <option value="1">Short by shoes</option>
-          <option value="2">Short by shirt</option>
-          <option value="3">Short by jacket</option>
-          <option value="4">Short by trousers</option>
-        </select>
-      </div>
-      <div className="product-list">
-        {currentItems.map((product) => <ProductCard product={product} key={product.id} />)}
-      </div>
-      <div className="page-btn" id="pagination">
-        {Array(totalPages).fill().map((page, i) => <span key={i} onClick={() => handlePageChange(i + 1)}>{i + 1}</span>)}
+    <div className="parent">
+      <aside className="sidebar">
+        <p className="filter-title">Filters</p>
+        <input type="text" className="search-input" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
+        <fieldset className="price-filter">
+          <legend>Price</legend>
+          <input type="range" min={0} max={200} step={5} value={price} onChange={(e) => { setPrice(e.target.value); }} />
+        </fieldset>
+        <fieldset className="category-filter">
+          <legend>Category</legend>
+          <div className="radio-container">
+            {
+              categoryOptions.map((option, index) => (
+                <label htmlFor={option} className="radio-label" key={index}>
+                  <input className="cat-input" id={option} checked={category === 0} name="category" type="radio" value={index} onChange={handleCategory} />
+                  {option}
+                </label>
+              ))
+              }
+          </div>
+        </fieldset>
+
+      </aside>
+      <div className="small-container">
+        <div className="row row-2">
+          <h2 className="product-title">All Products</h2>
+        </div>
+        <div className="product-list">
+          {currentItems.map((product) => <ProductCard product={product} key={product.id} />)}
+        </div>
+        <div className="page-btn" id="pagination">
+          {Array(totalPages).fill().map((page, i) => <span key={i} onClick={() => handlePageChange(i + 1)}>{i + 1}</span>)}
+        </div>
       </div>
     </div>
   );
