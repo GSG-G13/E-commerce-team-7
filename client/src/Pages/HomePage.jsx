@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable max-len */
@@ -19,6 +20,7 @@ export function HomePage() {
         setProducts(data);
       });
   }, []);
+
   const filterData = products.filter((product) => product.category_id === +category || +category === 0)
     .filter((product) => product.price > price);
   const totalPages = Math.ceil(filterData.length / itemsPerPage);
@@ -53,11 +55,7 @@ export function HomePage() {
         {currentItems.map((product) => <ProductCard product={product} key={product.id} />)}
       </div>
       <div className="page-btn" id="pagination">
-        <span onClick={() => handlePageChange(1)}>1</span>
-        <span onClick={() => handlePageChange(2)}>2</span>
-        <span onClick={() => handlePageChange(3)}>3</span>
-        <span onClick={() => handlePageChange(4)}>4</span>
-        <span onClick={() => handlePageChange(5)}>5</span>
+        {Array(totalPages).fill().map((page, i) => <span key={i} onClick={() => handlePageChange(i + 1)}>{i + 1}</span>)}
       </div>
     </div>
   );
