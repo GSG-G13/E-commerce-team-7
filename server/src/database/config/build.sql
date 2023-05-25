@@ -34,4 +34,21 @@ CREATE TABLE cart(
     count int NOT NULL DEFAULT 1
 );
 
+
+INSERT INTO category (category) VALUES 
+('shoes'),
+('shirt'),
+('jacket'),
+('trousers'),
+('sweater');
+
+INSERT INTO users (username, email, password, Role)
+VALUES
+('admin', 'admin@example.com', 'password', true);
+
+INSERT INTO products (category_id, description, price, discount, details, name, image) VALUES
+    (1, 'Running Shoesoij sadasd ', 50, 0.1, 'Lorem ipsum dolor sit amet', 'alaatest', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg');
+
+INSERT INTO cart (user_id, product_id) VALUES 
+    (1,1);
 COMMIT;

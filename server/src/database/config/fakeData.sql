@@ -1,11 +1,5 @@
 BEGIN;
 
-INSERT INTO category (category) VALUES 
-('shoes'),
-('shirt'),
-('jacket'),
-('trousers'),
-('sweater');
 
 INSERT INTO users (username, email, password, Role)
 VALUES
