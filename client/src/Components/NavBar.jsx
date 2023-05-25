@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 export function NavBar() {
   const navigate = useNavigate();
   const [Auth, setAuth] = useState(false);
+  const [count, setCount] = useState(false);
 
   const logoutHandler = () => {
     fetch('/api/user/logout')
@@ -25,9 +26,17 @@ export function NavBar() {
       setAuth(false);
     }
   });
+  
+  useEffect(() => {
+    fetch('/api/get-all-product')
+      .then((response) => response.json())
+      .then(({ rows }) => {
+        rows.forEach((row) => setCount())
+      });
+  })
 
   return (
-    <div>
+    <div className="navbar-container">
       <div className="container">
         <div className="navbar">
           <div className="logo">
@@ -38,18 +47,24 @@ export function NavBar() {
               <li><Link to="/">Home</Link></li>
               {Auth
                 // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-                ? <li><i className="fa-solid fa-arrow-right-from-bracket" onClick={logoutHandler} /></li>
+                ? (
+                  <>
+                    <li><i className="fa-solid fa-arrow-right-from-bracket" onClick={logoutHandler} /></li>
+                    <Link className="cart-icon" to="cart">
+                      <div className="amount-circle">10</div>
+                      <i className="fa fa-shopping-cart" />
+                    </Link>
+                  </>
+                )
+
                 : (
                   <>
                     <li><Link to="signup">SignUp</Link></li>
                     <li><Link to="signin">SignIn</Link></li>
                   </>
                 )}
-
-              {/* <li><i className="fa-solid fa-arrow-right-from-bracket" onClick={logoutHandler} /></li> */}
             </ul>
           </nav>
-          <Link to="cart"><i className="fa fa-shopping-cart" /></Link>
         </div>
       </div>
     </div>
