@@ -11,6 +11,7 @@ export function HomePage() {
   const [price, setPrice] = useState('0');
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [search, setSearch] = useState('');
   const itemsPerPage = 4;
 
   useEffect(() => {
@@ -28,7 +29,10 @@ export function HomePage() {
   // Get the current page's data
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = filterData.slice(indexOfFirstItem, indexOfLastItem);
+  let currentItems = filterData.slice(indexOfFirstItem, indexOfLastItem);
+  if (search) {
+    currentItems = products.filter((product) => product.name.startsWith(search));
+  }
 
   const handleCategory = (e) => {
     setCategory(e.target.value);
@@ -36,10 +40,10 @@ export function HomePage() {
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-
   return (
     <div className="small-container">
       <div className="row row-2">
+        <input type="text" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
         <h2>All Products</h2>
         <input type="range" id="points" name="points" min="0" max="500" onChange={(e) => setPrice(e.target.value)} />
         <select value={category} onChange={handleCategory}>
