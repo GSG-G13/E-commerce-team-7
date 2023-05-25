@@ -49,8 +49,8 @@ VALUES
 
 
 INSERT INTO products (category_id, description, price, discount, details, name, image) VALUES
-    (1, 'Running Shoesoij sadasd ', 50, 0.1, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
-    (1, 'Sneakerssad asasdsad as', 80, 0.2, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (1, 'Running Shoesoij sadasd ', 50, 0.1, 'Lorem ipsum dolor sit amet', 'alaatest', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
+    (1, 'Sneakerssad asasdsad as', 80, 0.2, 'Lorem ipsum dolor sit amet', 'testAlaa', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
     (1, 'Bootsasd asdasd asd asd asd', 120, 0.15, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
     (1, 'Sandalsasas das dasa dd asd', 60, 0.05, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
     (2, 'T-Shirt asdasdas dsad asd', 20, 0.1, 'Lorem ipsum dolor sit amet', 'product1', 'https://www.jiomart.com/images/product/original/rvrgwpjvsp/bruton-trendy-sports-shoes-for-men-blue-product-images-rvrgwpjvsp-0-202209021256.jpg'),
