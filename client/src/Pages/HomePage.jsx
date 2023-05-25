@@ -20,6 +20,7 @@ export function HomePage() {
         setProducts(data);
       });
   }, []);
+
   const filterData = products.filter((product) => product.category_id === +category || +category === 0)
     .filter((product) => product.price > price);
   const totalPages = Math.ceil(filterData.length / itemsPerPage);
