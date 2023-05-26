@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useEffect, useState } from 'react';
 import '../assets/styles/layout.css';
@@ -26,14 +28,20 @@ export function NavBar() {
       setAuth(false);
     }
   });
-  
+
   useEffect(() => {
     fetch('/api/get-all-product')
       .then((response) => response.json())
       .then(({ rows }) => {
-        rows.forEach((row) => setCount())
-      });
-  })
+        if (rows) {
+          let a = 0;
+          rows.forEach((row) => {
+            a += row.count;
+          });
+          return a;
+        }
+      }).then((c) => setCount(c));
+  });
 
   return (
     <div className="navbar-container">
@@ -51,7 +59,7 @@ export function NavBar() {
                   <>
                     <li><i className="fa-solid fa-arrow-right-from-bracket" onClick={logoutHandler} /></li>
                     <Link className="cart-icon" to="cart">
-                      <div className="amount-circle">10</div>
+                      <div className="amount-circle">{count}</div>
                       <i className="fa fa-shopping-cart" />
                     </Link>
                   </>

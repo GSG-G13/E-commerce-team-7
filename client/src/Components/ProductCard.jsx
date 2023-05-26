@@ -25,7 +25,7 @@ function ProductCard({
     <div className="product-card">
       <div className="product-tumb">
         <Link to={`product/${id}`}>
-          <img src={image} width="100%" alt="image" />
+          <img src={image} width="100%" alt="product" />
         </Link>
       </div>
       <div className="product-details">
