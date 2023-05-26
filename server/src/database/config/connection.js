@@ -25,8 +25,6 @@ const options = {
       ? { rejectUnauthorized: false }
       : false,
 };
-console.log(DB);
 
 export const connection = new pg.Pool(options);
 
-// module.exports = connection;
