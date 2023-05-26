@@ -19,7 +19,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use('/api', router);
 app.use(express.static(join(__dirname, '..', 'dist')))
-app.use(clientError);
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
+});app.use(clientError);
 app.use(serverError);
 
 export default app;
