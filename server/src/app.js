@@ -14,6 +14,11 @@ app.use(cors());
 app.use(cookieParser())
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.get('/',(req, res) => {
+  res.json({
+    msg: 'server is running',
+  })
+})
 app.use('/api', router);
 app.use(clientError);
 app.use(serverError);
