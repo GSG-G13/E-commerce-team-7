@@ -1,4 +1,6 @@
+// import { connection } from '../../database/config/connection.js';
 import { connection } from '../../database/config/connection.js';
+// const connection = require('../../database/config/connection.js')
 
 export const getProducts = async (req, res) => {
   try {
