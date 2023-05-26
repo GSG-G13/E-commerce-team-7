@@ -3,7 +3,6 @@ BEGIN;
 
 INSERT INTO users (username, email, password, Role)
 VALUES
-('admin', 'admin@example.com', 'password', true),
 ('user1', 'user1@example.com', 'password1', false),
 ('user2', 'user2@example.com', 'password2', false),
 ('user3', 'user3@example.com', 'password3', false),
