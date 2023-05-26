@@ -27,7 +27,6 @@ export function HomePage() {
     .filter((product) => +product.price > +price);
   const totalPages = Math.ceil(filterData.length / itemsPerPage);
 
-  // Get the current page's data
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   let currentItems = filterData.slice(indexOfFirstItem, indexOfLastItem);
@@ -57,7 +56,7 @@ export function HomePage() {
             {
               categoryOptions.map((option, index) => (
                 <label htmlFor={option} className="radio-label" key={index}>
-                  <input className="cat-input" id={option} checked={category === 0} name="category" type="radio" value={index} onChange={handleCategory} />
+                  <input className="cat-input" id={option} name="category" type="radio" value={index} onChange={(e) => handleCategory(e)} />
                   {option}
                 </label>
               ))
