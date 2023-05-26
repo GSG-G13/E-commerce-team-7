@@ -13,9 +13,9 @@ let DB = '';
 if (NODE_ENV === 'test') {
   DB = TEST_DB_URL;
 } else if (NODE_ENV === 'development') {
-  DB = DB_URL;
-} else {
   DB = DEV_DB_URL;
+} else {
+  DB = DB_URL;
 }
 
 const options = {
