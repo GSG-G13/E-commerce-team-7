@@ -2,6 +2,8 @@ import Joi from 'joi';
 import Jwt from 'jsonwebtoken';
 import { CustomError } from '../utils/index.js';
 
+
+
 const serverError = (err, req, res, next) => {
   if (err instanceof Joi.ValidationError) {
     return res.status(400).json({
@@ -20,6 +22,7 @@ const serverError = (err, req, res, next) => {
       },
     });
   }
+
   if (err instanceof CustomError) {
     return res.status(400).json({
       status: 400,
@@ -30,8 +33,8 @@ const serverError = (err, req, res, next) => {
   }
 
     res.status(500).json({
-        error: true,
-        message: err
+        status: 500,
+        message: 'server error'
     })
 };
 
