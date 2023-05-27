@@ -1,0 +1,13 @@
+{
+  "name": "e-commerce-team-7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "cd ./client && npm run build && cd ../server && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
