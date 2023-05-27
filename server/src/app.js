@@ -21,6 +21,10 @@ app.get('/',  (req, res) => {
   res.sendFile(join(__dirname, '..', '..', 'client', 'dist', 'index.html' ));
 })
 app.use('/api', router);
+
+app.get("*", (req, res) => {
+  res.sendFile(join(__dirname, '..', '..', 'client', 'dist', 'index.html' ))
+})
 app.use(clientError);
 app.use(serverError);
 
