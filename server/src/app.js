@@ -1,15 +1,17 @@
 import express from 'express';
-import dotenv from 'dotenv';
+import { join } from 'path'
+import {} from 'dotenv/config.js';
+import cors from "cors";
 import cookieParser from 'cookie-parser';
 import router from './routes/index.js';
 import serverError from './middleware/serverError.js';
 import clientError from './middleware/client.js';
-import cors from "cors";
-import { join } from 'path'
-dotenv.config();
+
+const { PORT } = process.env;
 
 const app = express();
 const __dirname = new URL('.', import.meta.url).pathname;
+app.set('PORT', 8080 || PORT )
 app.use(cookieParser());
 app.use(cors());
 app.use(cookieParser())

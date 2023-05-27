@@ -57,7 +57,7 @@ export function NavBar() {
                 // eslint-disable-next-line jsx-a11y/click-events-have-key-events
                 ? (
                   <>
-                    <li><i className="fa-solid fa-arrow-right-from-bracket" onClick={logoutHandler} /></li>
+                    <li className="logout-ico"><i className="fa-solid fa-arrow-right-from-bracket" onClick={logoutHandler} /></li>
                     <Link className="cart-icon" to="cart">
                       <div className="amount-circle">{count}</div>
                       <i className="fa fa-shopping-cart" />

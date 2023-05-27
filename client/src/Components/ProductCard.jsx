@@ -29,7 +29,7 @@ function ProductCard({
         </Link>
       </div>
       <div className="product-details">
-        <span className="product-catagory">{details}</span>
+        <span className="product-catagory">{name}</span>
         <h4>{description}</h4>
         <p>{details}</p>
         <div className="product-bottom-details">

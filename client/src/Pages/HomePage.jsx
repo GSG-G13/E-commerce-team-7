@@ -12,8 +12,8 @@ export function HomePage() {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState('');
-  const itemsPerPage = 4;
-  const categoryOptions = ['All', 'Short by shoes', 'Short by shirts', 'Short by jacket', 'short by trousers ', 'Short by sweater'];
+  const itemsPerPage = 6;
+  const categoryOptions = ['All', ' shoes', ' shirts', ' jacket', ' trousers ', ' sweater'];
 
   useEffect(() => {
     fetch('/api/products')
@@ -69,9 +69,21 @@ export function HomePage() {
         <div className="row row-2">
           <h2 className="product-title">All Products</h2>
         </div>
-        <div className="product-list">
-          {currentItems.map((product) => <ProductCard product={product} key={product.id} />)}
-        </div>
+        {currentItems.length
+
+          ? (
+            <div className="product-list">
+              {currentItems.map((product) => <ProductCard product={product} key={product.id} />)}
+            </div>
+          )
+          : (
+            <div className="lds-ring">
+              <div> </div>
+              <div> </div>
+              <div> </div>
+              <div> </div>
+            </div>
+          )}
         <div className="page-btn" id="pagination">
           {Array(totalPages).fill().map((page, i) => <span key={i} onClick={() => handlePageChange(i + 1)}>{i + 1}</span>)}
         </div>

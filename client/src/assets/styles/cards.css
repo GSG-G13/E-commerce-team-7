@@ -18,13 +18,14 @@ a
 }
 .product-list{
   display: flex;
+  justify-content: center;
   gap: 30px;
   flex-wrap: wrap;
   margin-bottom: 3rem;
 
 }
 .product-card {
-    width: 330px;
+    width: 300px;
     position: relative;
     box-shadow: 0 2px 7px #dfdfdf;
     background: #fafafa;

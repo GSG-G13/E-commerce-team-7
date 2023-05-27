@@ -8,9 +8,11 @@ export function AccessForm({ endpoint }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isOkey, setIsOkey] = useState(false);
+  const [loader, setLoader] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const accessHandler = () => {
+    setLoader(true);
     fetch(`/api/user${pathname}`, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
@@ -23,8 +25,9 @@ export function AccessForm({ endpoint }) {
       .then(({ status }) => {
         if (status === 200) {
           navigate('/');
-        }else{
-          setIsOkey(!isOkey)
+        } else {
+          setLoader(false);
+          setIsOkey(!isOkey);
         }
       });
   };
@@ -77,14 +80,25 @@ export function AccessForm({ endpoint }) {
             id="password"
           />
 
-          <button
-            onClick={() => accessHandler(username, password, email)}
-            id="register"
-            type="button"
-          >
-            {endpoint === 'SignIn' ? 'Sign in' : 'Sign Up'}
-          </button>
-          {isOkey && <p className="error-massage">you input are not valid</p>}
+          { loader
+            ? (
+              <button className="load2" type="button">
+                <span className="one"> </span>
+                <span className="two"> </span>
+                <span className="three"> </span>
+              </button>
+            )
+            : (
+              <button
+                onClick={() => accessHandler(username, password, email)}
+                id="register"
+                type="button"
+              >
+
+                {endpoint === 'SignIn' ? 'Sign in' : 'Sign Up'}
+              </button>
+            )}
+          { isOkey && <p className="error-massage">Invalid email or password!</p>}
 
           <p>
             Forgot your
