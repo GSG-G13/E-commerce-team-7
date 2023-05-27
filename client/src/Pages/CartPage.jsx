@@ -10,12 +10,15 @@ export function CartPage() {
   const [carts, setCarts] = useState([]);
   const [fetch, sendFetch] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [loader, setLoader] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
+    setLoader(true);
     axios.get('/api/get-all-product')
       .then(({ data: { rows } }) => {
         setCarts(rows);
+        setLoader(false);
       });
   }, [fetch]);
 
@@ -41,8 +44,17 @@ export function CartPage() {
         <div className="totalPrice">
           {totalPrice}
         </div>
-        {carts && carts.map((cart) => 
-          <CartDiv sendfetch1={sendFetch} fetch1={fetch} key={cart.id} cart={cart} />)}
+        {loader && (
+        <div className="lds-ring">
+          <div> </div>
+          <div> </div>
+          <div> </div>
+          <div> </div>
+        </div>
+        )}
+        {carts.length ? carts && carts.map((cart) =>
+          <CartDiv sendfetch1={sendFetch} fetch1={fetch} key={cart.id} cart={cart} />)
+          : !loader && <h3>you dont have products</h3>}
       </div>
     </div>
   );
