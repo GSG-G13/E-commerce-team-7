@@ -95,12 +95,12 @@ export function AccessForm({ endpoint }) {
             {endpoint === 'SignIn' ? (
               <>
                 <span> dont have account  </span>
-                <Link to="http://localhost:5173/signup" className="link">SignUp</Link>
+                <Link to="/signup" className="link">SignUp</Link>
               </>
             ) : (
               <>
                 <span>already have account </span>
-                <Link to="http://localhost:5173/signin" className="link">Signin</Link>
+                <Link to="/signin" className="link">Signin</Link>
               </>
             )}
           </p>

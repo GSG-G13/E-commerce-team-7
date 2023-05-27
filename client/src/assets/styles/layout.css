@@ -77,6 +77,7 @@ p {
 .sidebar{
   position: fixed;
   width: 250px;
+  height: calc(100% - 400px);
   left: 0;
   bottom: 0;
   top: 70px;

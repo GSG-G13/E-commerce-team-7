@@ -30,8 +30,9 @@ ul{
   left: 0;
   background-color: #24262b;
   padding: 70px 0;
-  width: 100%;
+  max-width: calc(100% - 250px);
   margin-top: 2rem;
+	margin-left:250px ;
 }
 
 .footer-col{
