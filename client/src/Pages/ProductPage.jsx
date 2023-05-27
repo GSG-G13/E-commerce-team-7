@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 // eslint-disable-next-line import/no-unresolved
 import '../assets/styles/productPgae.css';
 
 export default function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState({});
-
+  const navigate = useNavigate();
   useEffect(() => {
     fetch(`/api/product/${id}`)
       .then((data) => data.json())
@@ -14,8 +14,13 @@ export default function ProductPage() {
   }, []);
 
   const addToCart = (productId) => {
-    fetch(`/api/add-to-cart/${productId}`)
-      .then((data) => data.json());
+    const token = document.cookie;
+    if (token.startsWith('token')) {
+      fetch(`/api/add-to-cart/${productId}`)
+        .then((data) => data.json());
+    } else {
+      navigate('/signin');
+    }
   };
 
   return (
