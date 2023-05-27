@@ -6,7 +6,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "cd ./server && npm start",
-    "dev": "cd ../server && npm run dev"
+    "dev": "cd ./server && npm run dev"
   },
   "keywords": [],
   "author": "",
